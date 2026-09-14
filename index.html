@@ -1700,10 +1700,20 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       }
     }
 
-    window.addEventListener('resize', () => {
-      if (!bgCanvas) return;
-      bgW = bgCanvas.width = window.innerWidth;
-      bgH = bgCanvas.height = window.innerHeight;
+        window.addEventListener('resize', () => {
+      if (bgCanvas) {
+        bgW = bgCanvas.width = window.innerWidth;
+        bgH = bgCanvas.height = window.innerHeight;
+      }
+    });
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (bgCanvas) {
+          bgCanvas.width = window.innerWidth || 1000;
+          bgCanvas.height = window.innerHeight || 1000;
+        }
+      }, 50);
     });
 
     window.addEventListener('mousemove', (e) => {
