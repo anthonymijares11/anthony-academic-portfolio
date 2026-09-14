@@ -10,57 +10,73 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* PRIMARY HIGH-CONTRAST MONOCHROME: Black Canvas, Pure White Containers, Black Text (ZERO BLUE) */
-      --bg-page: #000000;
-      --text-page: #ffffff;
-      --border-header: #262626;
-      --bg-header: rgba(0, 0, 0, 0.95);
+      /* CALIBRATED EYE-FRIENDLY NEUTRAL DARK PALETTE (ZERO BLUE, ZERO HARSH GLARE) */
+      --bg-page: #111113;
+      --text-page: #ededf0;
+      --border-header: #242429;
+      --bg-header: rgba(17, 17, 19, 0.88);
+      
+      --bg-card: #18181b;
+      --border-card: #27272a;
+      --text-card-title: #f4f4f5;
+      --text-card-body: #d4d4d8;
+      --text-card-muted: #8a8a94;
+      
+      --bg-well: #131316;
+      --border-well: #222226;
+      --text-well: #d4d4d8;
+      
+      --bg-btn-primary: #ededf0;
+      --text-btn-primary: #111113;
+      
+      --bg-btn-secondary: #222227;
+      --text-btn-secondary: #ededf0;
+      --border-btn-secondary: #303038;
+
+      --bg-pill-active: #ededf0;
+      --text-pill-active: #111113;
+      --border-pill-active: #ededf0;
+
+      --bg-pill-inactive: #18181b;
+      --text-pill-inactive: #8a8a94;
+      --border-pill-inactive: #27272a;
+      
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    /* CALIBRATED EYE-FRIENDLY NEUTRAL LIGHT PALETTE (ZERO BLUE, ZERO WHITE BURNOUT) */
+    html.theme-light {
+      --bg-page: #f5f5f7;
+      --text-page: #161619;
+      --border-header: #e2e2e7;
+      --bg-header: rgba(245, 245, 247, 0.88);
       
       --bg-card: #ffffff;
-      --border-card: #e5e5e5;
-      --text-card-title: #000000;
-      --text-card-body: #171717;
-      --text-card-muted: #525252;
+      --border-card: #e2e2e7;
+      --text-card-title: #161619;
+      --text-card-body: #34343a;
+      --text-card-muted: #6e6e78;
       
-      --bg-well: #f5f5f5;
-      --border-well: #e5e5e5;
-      --text-well: #171717;
+      --bg-well: #f0f0f3;
+      --border-well: #e0e0e6;
+      --text-well: #34343a;
       
-      --bg-btn-primary: #000000;
+      --bg-btn-primary: #161619;
       --text-btn-primary: #ffffff;
       
       --bg-btn-secondary: #ffffff;
-      --text-btn-secondary: #000000;
-      --border-btn-secondary: #d4d4d4;
-      
-      --shadow-card: 0 4px 20px rgba(255, 255, 255, 0.08), 0 1px 3px rgba(0, 0, 0, 0.6);
-    }
+      --text-btn-secondary: #161619;
+      --border-btn-secondary: #dcdce2;
 
-    /* VICE VERSA: White Canvas, Pure Black Containers, White Text (ZERO BLUE) */
-    html.theme-inverse {
-      --bg-page: #ffffff;
-      --text-page: #000000;
-      --border-header: #e5e5e5;
-      --bg-header: rgba(255, 255, 255, 0.95);
+      --bg-pill-active: #161619;
+      --text-pill-active: #ffffff;
+      --border-pill-active: #161619;
+
+      --bg-pill-inactive: #ffffff;
+      --text-pill-inactive: #6e6e78;
+      --border-pill-inactive: #dcdce2;
       
-      --bg-card: #000000;
-      --border-card: #262626;
-      --text-card-title: #ffffff;
-      --text-card-body: #e5e5e5;
-      --text-card-muted: #a3a3a3;
-      
-      --bg-well: #121212;
-      --border-well: #262626;
-      --text-well: #e5e5e5;
-      
-      --bg-btn-primary: #ffffff;
-      --text-btn-primary: #000000;
-      
-      --bg-btn-secondary: #000000;
-      --text-btn-secondary: #ffffff;
-      --border-btn-secondary: #404040;
-      
-      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
     }
 
     body {
@@ -76,11 +92,11 @@
   <script>
     (function() {
       try {
-        const saved = localStorage.getItem('portfolio_theme_inverse');
-        if (saved === 'true') {
-          document.documentElement.classList.add('theme-inverse');
+        const saved = localStorage.getItem('portfolio_theme');
+        if (saved === 'light') {
+          document.documentElement.classList.add('theme-light');
         } else {
-          document.documentElement.classList.remove('theme-inverse');
+          document.documentElement.classList.remove('theme-light');
         }
       } catch(e) {}
     })();
@@ -116,10 +132,10 @@
           </button>
         </nav>
 
-        <!-- Theme Inversion Toggle -->
-        <button onclick="toggleTheme()" aria-label="Toggle Monochrome Theme" id="themeToggleBtn" class="px-3 py-1.5 rounded-lg border text-xs font-mono font-medium hover:opacity-80 transition cursor-pointer flex items-center gap-2" title="Invert Canvas / Container Contrast">
-          <span id="themeDot" class="inline-block w-2.5 h-2.5 rounded-full border border-current"></span>
-          <span id="themeLabel">Light Canvas</span>
+        <!-- Theme Toggle Button with Real SVG Icons -->
+        <button onclick="toggleTheme()" aria-label="Toggle Color Theme" id="themeToggleBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[var(--border-header)] text-xs font-mono font-medium hover:opacity-80 transition cursor-pointer bg-[var(--bg-card)] text-[var(--text-card-title)] shadow-xs" title="Toggle Light / Dark Mode">
+          <span id="themeIcon"></span>
+          <span id="themeLabel">Light Mode</span>
         </button>
       </div>
 
@@ -128,7 +144,7 @@
 
   <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8">
 
-    <!-- Profile Overview Card (White container on Black canvas OR Black container on White canvas) -->
+    <!-- Profile Overview Card -->
     <section id="about" class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-5 transition-all duration-200">
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
         <img src="assets/anthony_photo.jpg" alt="Anthony Mijares" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border border-[var(--border-well)] shrink-0 shadow-xs">
@@ -136,8 +152,9 @@
         <div class="space-y-1.5 flex-grow">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <span class="text-xs font-mono font-semibold uppercase tracking-wider text-[var(--text-card-muted)]">About Me</span>
-            <span class="text-xs px-2.5 py-0.5 rounded-full bg-[var(--bg-well)] text-[var(--text-card-title)] font-mono font-medium border border-[var(--border-well)]">
-              BSIT 4th Year Senior Student
+            <span class="inline-flex items-center gap-1.5 text-xs px-2.5 py-0.5 rounded-full bg-[var(--bg-well)] text-[var(--text-card-title)] font-mono font-medium border border-[var(--border-well)]">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+              <span>BSIT 4th Year Senior Student</span>
             </span>
           </div>
           <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-[var(--text-card-title)]">
@@ -159,9 +176,18 @@
       </div>
 
       <div class="flex flex-wrap items-center gap-2 pt-1 text-xs text-[var(--text-card-muted)] font-mono">
-        <span class="px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">anthony.mijares@my.jru.edu</span>
-        <span class="px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">Jose Rizal University</span>
-        <span class="px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">Dept of Computer Studies &amp; Engineering</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">
+          <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>anthony.mijares@my.jru.edu</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">
+          <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          <span>Jose Rizal University</span>
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">
+          <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="2"></line><line x1="8" y1="6" x2="10" y2="6"></line><line x1="8" y1="10" x2="10" y2="10"></line><line x1="8" y1="14" x2="10" y2="14"></line><line x1="8" y1="18" x2="10" y2="18"></line><line x1="14" y1="6" x2="16" y2="6"></line><line x1="14" y1="10" x2="16" y2="10"></line><line x1="14" y1="14" x2="16" y2="14"></line><line x1="14" y1="18" x2="16" y2="18"></line></svg>
+          <span>Dept of Computer Studies &amp; Engineering</span>
+        </span>
       </div>
     </section>
 
@@ -339,15 +365,16 @@
       <!-- Filter Controls -->
       <div class="flex flex-wrap items-center justify-between gap-3">
         <div class="flex flex-wrap items-center gap-1.5 text-xs font-mono">
-          <button onclick="filterItc('intro')" id="itcTabIntro" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer">Course Introduction</button>
-          <button onclick="filterItc('prelim')" id="itcTabPrelim" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer">Prelim Period (5)</button>
-          <button onclick="filterItc('midterm')" id="itcTabMidterm" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer">Midterm Period (3)</button>
-          <button onclick="filterItc('final')" id="itcTabFinal" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer">Final Period (3)</button>
-          <button onclick="filterItc('all')" id="itcTabAll" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer">All</button>
+          <button onclick="filterItc('intro')" id="itcTabIntro" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Course Introduction</button>
+          <button onclick="filterItc('prelim')" id="itcTabPrelim" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Prelim Period (5)</button>
+          <button onclick="filterItc('midterm')" id="itcTabMidterm" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Midterm Period (3)</button>
+          <button onclick="filterItc('final')" id="itcTabFinal" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Final Period (3)</button>
+          <button onclick="filterItc('all')" id="itcTabAll" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">All</button>
         </div>
 
-        <button onclick="toggleAllDetails()" id="toggleAllBtn" class="text-xs font-mono px-3 py-1.5 rounded-lg border transition shadow-xs cursor-pointer">
-          <span id="toggleAllLabel">+ Expand All Details</span>
+        <button onclick="toggleAllDetails()" id="toggleAllBtn" class="text-xs font-mono px-3 py-1.5 rounded-lg border transition shadow-xs cursor-pointer inline-flex items-center gap-1.5 font-medium">
+          <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="7 15 12 20 17 15"></polyline><polyline points="7 9 12 4 17 9"></polyline></svg>
+          <span id="toggleAllLabel">Expand All Details</span>
         </button>
       </div>
 
@@ -434,18 +461,22 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">1.1 Research Paper: An Analysis of Hyperparameter Optimization in a Supervised Machine Learning Algorithm: K-Nearest Neighbors utilizing the Iris Dataset</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Department of Computer Studies and Engineering, Jose Rizal University</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_ex1_knn_paper.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/prelim_ex1_knn_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/prelim_ex1_knn_paper.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/prelim_ex1_knn_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -456,16 +487,17 @@
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This specific exercise served as our introduction to K-Nearest Neighbor through developing a model designed to classify three species of the Iris flowers, namely Setosa, Versicolor, and Virginica based on petal and sepal measurements. Utilizing the classic Iris dataset, originally introduced by Ronald Fisher, the model analyzes morphological measurements, specifically the length and width of petals and sepals, to identify unique patterns. The dataset consist of 150 samples to train and test the machine learning algorithm.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This specific exercise served as our introduction to K-Nearest Neighbor through developing a model designed to classify three species of the Iris flowers, namely Setosa, Versicolor, and Virginica based on petal and sepal measurements. Utilizing the classic Iris dataset, originally introduced by Ronald Fisher, the model analyzes morphological measurements, specifically the length and width of petals and sepals, to identify unique patterns. The dataset consist of 150 samples to train and test the machine learning algorithm.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -490,14 +522,17 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">1.6 Code: PT_P2_Mijares_Anthony: kNN Model Implementation and Confusion Matrix</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Interactive Python / Google Colab Notebook Output</span>
               </div>
             </div>
-            <a href="assets/notebooks/prelim_ex1_knn_code.html" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              Open Standalone Notebook &nearr;
+            <a href="assets/notebooks/prelim_ex1_knn_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+              <span>Open Notebook</span>
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           </div>
           <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
@@ -522,18 +557,22 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">2.1 Research Paper: Data Cleaning and Preprocessing for Customer Purchase Prediction</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Regional Store Dataset Imputation and Normalization Analysis</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_ex2_cleaning_paper.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/prelim_ex2_cleaning_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/prelim_ex2_cleaning_paper.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/prelim_ex2_cleaning_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -544,16 +583,17 @@
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This served as our second exercise uses a dataset from four different store regions to predict if a customer is likely to purchase a product. This showcases how in reality, raw data are noisy in nature as the dataset contains inconsistencies, and impossible values like ages over 100 or negative income. The study highlights how important or critical the data preparation process for the machine learning model to produce accurate results.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This served as our second exercise uses a dataset from four different store regions to predict if a customer is likely to purchase a product. This showcases how in reality, raw data are noisy in nature as the dataset contains inconsistencies, and impossible values like ages over 100 or negative income. The study highlights how important or critical the data preparation process for the machine learning model to produce accurate results.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -578,14 +618,17 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">2.6 Code: Mijares WW2-datacleaning: MICE Imputation and Preprocessing Pipeline</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Interactive Python / Google Colab Notebook Output</span>
               </div>
             </div>
-            <a href="assets/notebooks/prelim_ex2_cleaning_code.html" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              Open Standalone Notebook &nearr;
+            <a href="assets/notebooks/prelim_ex2_cleaning_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+              <span>Open Notebook</span>
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           </div>
           <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
@@ -610,18 +653,22 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">3.1 Research Paper: Simple and Multiple Linear Regression Analysis</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Ordinary Least Squares, Gradient Descent, and Feature Significance</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_ex3_regression_paper.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/prelim_ex3_regression_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/prelim_ex3_regression_paper.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/prelim_ex3_regression_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -632,16 +679,17 @@
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This our final exercise for the Prelim Period and tasked to implement Linear Regression initially using the to forecast service quality. The study initially utilized the Seaborn &quot;Tips&quot; dataset to gain enough proficiency in understanding of the relationship between independent variables (predictors) and dependent variables (targets). Following this, the study transitioned to find and utilize a custom dataset, which is Call Center dataset. The specific problem addressed is the inefficiency of &quot;reactive&quot; management where issues are only addressed after customer satisfaction has already declined. By utilizing this custom dataset, the model identifies how factors like &quot;Talk Time&quot; and &quot;Hold Time&quot; predict the final &quot;Satisfaction Score,&quot; allowing managers to intervene before service quality drops.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This our final exercise for the Prelim Period and tasked to implement Linear Regression initially using the to forecast service quality. The study initially utilized the Seaborn &quot;Tips&quot; dataset to gain enough proficiency in understanding of the relationship between independent variables (predictors) and dependent variables (targets). Following this, the study transitioned to find and utilize a custom dataset, which is Call Center dataset. The specific problem addressed is the inefficiency of &quot;reactive&quot; management where issues are only addressed after customer satisfaction has already declined. By utilizing this custom dataset, the model identifies how factors like &quot;Talk Time&quot; and &quot;Hold Time&quot; predict the final &quot;Satisfaction Score,&quot; allowing managers to intervene before service quality drops.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -666,14 +714,17 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">3.6 Code: Mijares_PT_P3_Simple_and_Multiple_Linear_Regression</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Interactive Python / Google Colab Notebook Output</span>
               </div>
             </div>
-            <a href="assets/notebooks/prelim_ex3_regression_code.html" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              Open Standalone Notebook &nearr;
+            <a href="assets/notebooks/prelim_ex3_regression_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+              <span>Open Notebook</span>
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           </div>
           <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
@@ -698,18 +749,22 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">4.1 Long Quiz Document: Prelim Long Quiz Assessment Output</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Department of Computer Studies and Engineering Coursework Output</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_long_quiz.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/prelim_long_quiz.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/prelim_long_quiz.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/prelim_long_quiz.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -720,16 +775,17 @@
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">The quiz initially divided our class into two sets and the questionaries on Set B focuses on an Agriculture domain dataset containing soil moisture, nitrogen, phosphorus, and potassium levels to predict crop yield. The challenge was to determine whether k-Nearest Neighbors (kNN) or Linear Regression was the appropriate model for predicting a continuous numerical value like &quot;Yield.&quot;</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">The quiz initially divided our class into two sets and the questionaries on Set B focuses on an Agriculture domain dataset containing soil moisture, nitrogen, phosphorus, and potassium levels to predict crop yield. The challenge was to determine whether k-Nearest Neighbors (kNN) or Linear Regression was the appropriate model for predicting a continuous numerical value like &quot;Yield.&quot;</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -768,18 +824,22 @@
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">5.1 Examination Document: Prelim Period Departmental Examination Solution</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Comprehensive Predictive Analytics Examination Document</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_exam.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/prelim_exam.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/prelim_exam.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/prelim_exam.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -790,16 +850,17 @@
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">The Prelim exam involved a regression analysis of Advertising Spend versus Product Sales. The goal was to calculate the Line of Best Fit or Regression Line using the slope and intercept to forecast future revenue based on marketing budgets. This demonstrates how a business can use simple math to predict if spending more on ads will actually result in higher profit.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">The Prelim exam involved a regression analysis of Advertising Spend versus Product Sales. The goal was to calculate the Line of Best Fit or Regression Line using the slope and intercept to forecast future revenue based on marketing budgets. This demonstrates how a business can use simple math to predict if spending more on ads will actually result in higher profit.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -843,18 +904,22 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">1.1 Research Paper: Logistic Regression for Organizational Attrition Modeling IEEE Report</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Binary Classification and Employee Turnover Risk Analysis</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/midterm_ex1_logistic_paper.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/midterm_ex1_logistic_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/midterm_ex1_logistic_paper.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/midterm_ex1_logistic_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -865,16 +930,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This exercise focuses on the development of a predictive model designed to address organizational stability by identifying key drivers of employee turnover. Utilizing a dataset of 3,100 observations, the model employs the Logistic Regression algorithm to analyze numerical indicators, specifically age, salary, and bonuses, to predict the likelihood of an employee resigning. The workflow involves systematic data preparation, feature selection, and a test-split validation method to establish a robust baseline for human resources decision support.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This exercise focuses on the development of a predictive model designed to address organizational stability by identifying key drivers of employee turnover. Utilizing a dataset of 3,100 observations, the model employs the Logistic Regression algorithm to analyze numerical indicators, specifically age, salary, and bonuses, to predict the likelihood of an employee resigning. The workflow involves systematic data preparation, feature selection, and a test-split validation method to establish a robust baseline for human resources decision support.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -899,14 +965,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">1.6 Code: Mijares: PTM Exercise 1 (Logistic Regression Notebook)</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Interactive Python / Google Colab Notebook Output</span>
               </div>
             </div>
-            <a href="assets/notebooks/midterm_ex1_logistic_code.html" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              Open Standalone Notebook &nearr;
+            <a href="assets/notebooks/midterm_ex1_logistic_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+              <span>Open Notebook</span>
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           </div>
           <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
@@ -931,18 +1000,22 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">2.1 Long Quiz Document: Midterm Long Quiz Assessment Output</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Classification Metrics, ROC-AUC, and Cross-Validation Analysis</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/midterm_long_quiz.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/midterm_long_quiz.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/midterm_long_quiz.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/midterm_long_quiz.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -953,16 +1026,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This long quiz served as a comprehensive assessment of fundamental concepts in predictive analytics, specifically contrasting Linear Regression and Logistic Regression. The primary focus was on understanding why Linear Regression is unsuitable for categorical &quot;Yes/No&quot; outcomes due to its linear nature, which can predict values outside the 0 to 1 range. The quiz further explored the application of the sigmoid curve in binary classification and the critical role of performance metrics such as Recall in sensitive scenarios like bank loan approvals. Additionally, it involved an e-commerce case study where numerical and categorical independent variables, stocks, product type, returns, and reviews, were used to predict product popularity.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This long quiz served as a comprehensive assessment of fundamental concepts in predictive analytics, specifically contrasting Linear Regression and Logistic Regression. The primary focus was on understanding why Linear Regression is unsuitable for categorical &quot;Yes/No&quot; outcomes due to its linear nature, which can predict values outside the 0 to 1 range. The quiz further explored the application of the sigmoid curve in binary classification and the critical role of performance metrics such as Recall in sensitive scenarios like bank loan approvals. Additionally, it involved an e-commerce case study where numerical and categorical independent variables, stocks, product type, returns, and reviews, were used to predict product popularity.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -1001,18 +1075,22 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">3.1 Examination Document: Midterm Period Departmental Examination Document</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Department of Computer Studies and Engineering Comprehensive Exam</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/midterm_exam.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/midterm_exam.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/midterm_exam.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/midterm_exam.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -1023,16 +1101,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This midterm examination focused on the practical application of predictive analytics in critical infrastructure and energy management. The assessment required the evaluation of regional fuel depletion risks by analyzing independent variables such as Tanker ETA, oil depot proximity, and vehicle queue density. A significant portion of the exam was dedicated to model validation techniques, specifically comparing the Train-Test Split method with K-Fold Cross-Validation. It involved a technical demonstration of 5-Fold Cross-Validation on a 40-row dataset, illustrating how data is partitioned into iterations to ensure every data point is utilized for both training and testing to prevent bias and ensure model stability.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This midterm examination focused on the practical application of predictive analytics in critical infrastructure and energy management. The assessment required the evaluation of regional fuel depletion risks by analyzing independent variables such as Tanker ETA, oil depot proximity, and vehicle queue density. A significant portion of the exam was dedicated to model validation techniques, specifically comparing the Train-Test Split method with K-Fold Cross-Validation. It involved a technical demonstration of 5-Fold Cross-Validation on a 40-row dataset, illustrating how data is partitioned into iterations to ensure every data point is utilized for both training and testing to prevent bias and ensure model stability.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -1075,18 +1154,22 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">1.1 Research Paper: Lab Exercise PT-F2: Deep Neural Network Model Fine-Tuning Report</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Hyperparameter Tuning, Learning Rate Schedules, and Regularization</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/final_ex1_finetuning_paper.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/final_ex1_finetuning_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/final_ex1_finetuning_paper.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/final_ex1_finetuning_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -1097,16 +1180,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This laboratory exercise involved a high-precision comparative analysis between probabilistic and geometric machine learning architectures, specifically Multinomial Logistic Regression (MLR) and Linear Support Vector Machines (SVM). The objective was the categorical profiling of wine cultivars based on thirteen distinct chemical constituents, such as Proline, Flavanoids, and Color Intensity. Utilizing a dataset of 178 instances, the workflow focused on the mathematical mechanics of multiclass classification, implementing the Softmax function for MLR and the Maximum-Margin approach for SVM to ensure robust decision boundaries across high-dimensional data.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This laboratory exercise involved a high-precision comparative analysis between probabilistic and geometric machine learning architectures, specifically Multinomial Logistic Regression (MLR) and Linear Support Vector Machines (SVM). The objective was the categorical profiling of wine cultivars based on thirteen distinct chemical constituents, such as Proline, Flavanoids, and Color Intensity. Utilizing a dataset of 178 instances, the workflow focused on the mathematical mechanics of multiclass classification, implementing the Softmax function for MLR and the Maximum-Margin approach for SVM to ensure robust decision boundaries across high-dimensional data.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -1131,14 +1215,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">1.6 Code: Mijares: Model Fine Tuning Executable Notebook</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Interactive Python / Google Colab Notebook Output</span>
               </div>
             </div>
-            <a href="assets/notebooks/final_ex1_finetuning_code.html" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              Open Standalone Notebook &nearr;
+            <a href="assets/notebooks/final_ex1_finetuning_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+              <span>Open Notebook</span>
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           </div>
           <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
@@ -1162,16 +1249,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This project proposal deck, titled &quot;Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security,&quot; addresses the critical vulnerability of water quality in the Philippines. While local districts provide supply data, infrastructure aging often compromises safety at the point of consumption. The study focuses on developing an automated predictive system to audit water safety by classifying water sources as safe or unsafe based on physical and chemical properties such as pH, Hardness, Solids, and Chloramines. This showcases the transition from a reactive approach to a proactive, automated audit of public health metrics.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This project proposal deck, titled &quot;Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security,&quot; addresses the critical vulnerability of water quality in the Philippines. While local districts provide supply data, infrastructure aging often compromises safety at the point of consumption. The study focuses on developing an automated predictive system to audit water safety by classifying water sources as safe or unsafe based on physical and chemical properties such as pH, Hardness, Solids, and Chloramines. This showcases the transition from a reactive approach to a proactive, automated audit of public health metrics.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -1210,18 +1298,22 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">3.1 Research Paper: Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security (Project Euphoria)</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">IEEE Format Research Paper Output &amp;bull; Department of Computer Studies and Engineering</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <a href="assets/docs/final_project_euphoria_paper.pdf" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                Open Fullscreen
+              <a href="assets/docs/final_project_euphoria_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                <span>Fullscreen</span>
               </a>
-              <a href="assets/docs/final_project_euphoria_paper.pdf" download class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition">
-                Download PDF
+              <a href="assets/docs/final_project_euphoria_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download PDF</span>
               </a>
             </div>
           </div>
@@ -1232,16 +1324,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-xs font-semibold uppercase tracking-wider text-[var(--text-card-muted)] font-mono">Description</h5>
-          <p class="text-sm leading-relaxed text-[var(--text-card-body)]">This final research project, &quot;Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security,&quot; presents a comparative study of supervised machine learning algorithms to automate the safety auditing of drinking water. Addressing the global challenge of waterborne diseases and the specific infrastructure vulnerabilities in the Philippines, the study utilizes a dataset of 3,276 water samples. The model analyzes nine physicochemical attributes, including pH, Sulfate, and Trihalomethanes, to classify water as potable or non-potable. This project emphasizes the transition from manual, reactive testing to a scalable, proactive framework for public health security.</p>
+          <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal">This final research project, &quot;Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security,&quot; presents a comparative study of supervised machine learning algorithms to automate the safety auditing of drinking water. Addressing the global challenge of waterborne diseases and the specific infrastructure vulnerabilities in the Philippines, the study utilizes a dataset of 3,276 water samples. The model analyzes nine physicochemical attributes, including pH, Sulfate, and Trihalomethanes, to classify water as potable or non-potable. This project emphasizes the transition from manual, reactive testing to a scalable, proactive framework for public health security.</p>
         </div>
       
         <details class="course-details text-xs group pt-2 border-t border-[var(--border-well)]">
-          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:underline flex items-center justify-between py-1 select-none font-mono">
-            <span class="flex items-center gap-1.5">
-              <span class="group-open:hidden">+ View Technical Skills, Significance, and Reflection</span>
-              <span class="hidden group-open:inline">&minus; Hide Technical Details</span>
+          <summary class="cursor-pointer font-semibold text-[var(--text-card-title)] hover:opacity-80 flex items-center justify-between py-1.5 select-none font-mono">
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)] transition-transform duration-200 group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              <span>Technical Skills, Significance, and Reflection</span>
             </span>
-            <span class="text-[11px] text-[var(--text-card-muted)] group-open:hidden">Click to view</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal group-open:hidden">View details</span>
+            <span class="text-[11px] text-[var(--text-card-muted)] font-normal hidden group-open:inline">Hide details</span>
           </summary>
           <div class="mt-3 space-y-2.5">
             
@@ -1266,14 +1359,17 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
           <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
             <div class="flex items-center gap-2.5">
-              <span class="inline-block w-2.5 h-2.5 rounded-full bg-[var(--text-card-title)]"></span>
+              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
               <div>
                 <span class="text-xs font-semibold text-[var(--text-card-title)] block">3.6 Code: Project EUPHORIA: SDG 6 Clean Water and Sanitation Machine Learning Pipeline</span>
                 <span class="text-[11px] text-[var(--text-card-muted)] block font-mono">Interactive Python / Google Colab Notebook Output</span>
               </div>
             </div>
-            <a href="assets/notebooks/final_project_euphoria_code.html" target="_blank" rel="noopener noreferrer" class="text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              Open Standalone Notebook &nearr;
+            <a href="assets/notebooks/final_project_euphoria_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+              <span>Open Notebook</span>
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             </a>
           </div>
           <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
@@ -1324,9 +1420,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         </div>
 
         <div class="pt-2 flex flex-wrap items-center gap-3">
-          <a href="https://anthonymijares2142.wixsite.com/eportfolio-emc-c102" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] text-xs font-semibold hover:opacity-90 transition">
+          <a href="https://anthonymijares2142.wixsite.com/eportfolio-emc-c102" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] text-xs font-semibold hover:opacity-90 transition shadow-xs">
             <span>Launch External EMC C102 Wix Portfolio</span>
-            <span class="font-mono text-xs">&nearr;</span>
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           </a>
           <span class="text-xs text-[var(--text-card-muted)] font-mono">Hosted on Wix &bull; Verified Academic Submissions</span>
         </div>
@@ -1343,21 +1439,25 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
   <script>
     let currentCourse = 'itc508';
 
+    const ICON_SUN_JS = `<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+    const ICON_MOON_JS = `<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+
     function updateNavStyles() {
-      const isInverse = document.documentElement.classList.contains('theme-inverse');
+      const isLight = document.documentElement.classList.contains('theme-light');
       const label = document.getElementById('themeLabel');
-      const dot = document.getElementById('themeDot');
+      const icon = document.getElementById('themeIcon');
       const toggleBtn = document.getElementById('themeToggleBtn');
+      
       if (label) {
-        label.textContent = isInverse ? 'Dark Canvas' : 'Light Canvas';
+        label.textContent = isLight ? 'Dark Mode' : 'Light Mode';
       }
-      if (dot) {
-        dot.style.backgroundColor = isInverse ? '#000000' : '#ffffff';
+      if (icon) {
+        icon.innerHTML = isLight ? ICON_MOON_JS : ICON_SUN_JS;
       }
       if (toggleBtn) {
-        toggleBtn.style.backgroundColor = isInverse ? '#f5f5f5' : '#141414';
-        toggleBtn.style.color = isInverse ? '#000000' : '#ffffff';
-        toggleBtn.style.borderColor = isInverse ? '#d4d4d4' : '#262626';
+        toggleBtn.style.backgroundColor = isLight ? '#ffffff' : '#18181b';
+        toggleBtn.style.color = isLight ? '#161619' : '#f4f4f5';
+        toggleBtn.style.borderColor = isLight ? '#e2e2e7' : '#27272a';
       }
 
       const topBtns = [
@@ -1369,12 +1469,12 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         const el = document.getElementById(b.id);
         if (el) {
           if (b.key === currentCourse) {
-            el.style.backgroundColor = isInverse ? '#000000' : '#ffffff';
-            el.style.color = isInverse ? '#ffffff' : '#000000';
+            el.style.backgroundColor = isLight ? '#161619' : '#ededf0';
+            el.style.color = isLight ? '#ffffff' : '#111113';
             el.style.opacity = '1';
           } else {
             el.style.backgroundColor = 'transparent';
-            el.style.color = isInverse ? '#000000' : '#ffffff';
+            el.style.color = isLight ? '#161619' : '#ededf0';
             el.style.opacity = '0.7';
           }
         }
@@ -1389,12 +1489,12 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         const el = document.getElementById(b.id);
         if (el) {
           if (b.key === currentCourse) {
-            el.style.backgroundColor = isInverse ? '#000000' : '#ffffff';
-            el.style.color = isInverse ? '#ffffff' : '#000000';
+            el.style.backgroundColor = isLight ? '#161619' : '#ededf0';
+            el.style.color = isLight ? '#ffffff' : '#111113';
             el.style.opacity = '1';
           } else {
             el.style.backgroundColor = 'transparent';
-            el.style.color = isInverse ? '#000000' : '#ffffff';
+            el.style.color = isLight ? '#161619' : '#ededf0';
             el.style.opacity = '0.7';
           }
         }
@@ -1402,9 +1502,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
 
       const toggleDetailsBtn = document.getElementById('toggleAllBtn');
       if (toggleDetailsBtn) {
-        toggleDetailsBtn.style.backgroundColor = isInverse ? '#f5f5f5' : '#141414';
-        toggleDetailsBtn.style.color = isInverse ? '#171717' : '#e5e5e5';
-        toggleDetailsBtn.style.borderColor = isInverse ? '#d4d4d4' : '#262626';
+        toggleDetailsBtn.style.backgroundColor = isLight ? '#ffffff' : '#18181b';
+        toggleDetailsBtn.style.color = isLight ? '#161619' : '#f4f4f5';
+        toggleDetailsBtn.style.borderColor = isLight ? '#e2e2e7' : '#27272a';
       }
 
       updateFilterTabs();
@@ -1437,16 +1537,16 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     }
 
     function toggleTheme() {
-      const isInverse = document.documentElement.classList.toggle('theme-inverse');
+      const isLight = document.documentElement.classList.toggle('theme-light');
       try {
-        localStorage.setItem('portfolio_theme_inverse', isInverse ? 'true' : 'false');
+        localStorage.setItem('portfolio_theme', isLight ? 'light' : 'dark');
       } catch(e) {}
       updateNavStyles();
     }
 
     let currentFilter = 'all';
     function updateFilterTabs() {
-      const isInverse = document.documentElement.classList.contains('theme-inverse');
+      const isLight = document.documentElement.classList.contains('theme-light');
       const tabs = ['intro', 'prelim', 'midterm', 'final', 'all'];
       const map = {
         intro: 'itcTabIntro',
@@ -1460,14 +1560,14 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         const el = document.getElementById(map[t]);
         if (el) {
           if (t === currentFilter) {
-            el.style.backgroundColor = isInverse ? '#000000' : '#ffffff';
-            el.style.color = isInverse ? '#ffffff' : '#000000';
-            el.style.borderColor = isInverse ? '#000000' : '#ffffff';
+            el.style.backgroundColor = isLight ? '#161619' : '#ededf0';
+            el.style.color = isLight ? '#ffffff' : '#111113';
+            el.style.borderColor = isLight ? '#161619' : '#ededf0';
             el.style.fontWeight = '600';
           } else {
-            el.style.backgroundColor = isInverse ? '#f5f5f5' : '#141414';
-            el.style.color = isInverse ? '#525252' : '#a3a3a3';
-            el.style.borderColor = isInverse ? '#d4d4d4' : '#262626';
+            el.style.backgroundColor = isLight ? '#ffffff' : '#18181b';
+            el.style.color = isLight ? '#6e6e78' : '#8a8a94';
+            el.style.borderColor = isLight ? '#e2e2e7' : '#27272a';
             el.style.fontWeight = '500';
           }
         }
@@ -1520,9 +1620,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       detailsElements.forEach(d => d.open = allExpanded);
 
       if (allExpanded) {
-        label.textContent = '- Collapse All Details';
+        label.textContent = 'Collapse All Details';
       } else {
-        label.textContent = '+ Expand All Details';
+        label.textContent = 'Expand All Details';
       }
     }
 
