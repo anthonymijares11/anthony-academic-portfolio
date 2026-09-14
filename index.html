@@ -234,7 +234,21 @@
     <div id="viewITC508" class="space-y-6">
       
       <!-- Main Outer Wrapper Card -->
-      <article class="p-6 sm:p-8 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-8">
+      
+      <!-- Filter Controls -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-1.5 text-xs font-mono">
+          <button onclick="filterItc508('intro')" id="itc508TabIntro" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Course Introduction</button>
+          <button onclick="filterItc508('prelim')" id="itc508TabPrelim" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Prelim Period</button>
+          <button onclick="filterItc508('midterm')" id="itc508TabMidterm" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Midterm Period</button>
+          <button onclick="filterItc508('final')" id="itc508TabFinal" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Final Period</button>
+          <button onclick="filterItc508('all')" id="itc508TabAll" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">All</button>
+        </div>
+      </div>
+
+      <!-- Course Introduction Tab -->
+      <div id="itc508ContentIntro" class="space-y-6 animate-fade-in block">
+<article class="p-6 sm:p-8 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-8">
         
         <!-- Responses to Questions (a) and (b) -->
         <div class="space-y-6">
@@ -320,7 +334,32 @@
 
       </article>
 
+    
+      </div>
+
+      <!-- Prelim Period Tab -->
+      <div id="itc508ContentPrelim" class="hidden space-y-6 animate-fade-in">
+        <div class="flex items-center justify-center p-12 text-[var(--text-card-muted)] text-sm font-mono">
+          > Prelim content will be documented here soon...
+        </div>
+      </div>
+
+      <!-- Midterm Period Tab -->
+      <div id="itc508ContentMidterm" class="hidden space-y-6 animate-fade-in">
+        <div class="flex items-center justify-center p-12 text-[var(--text-card-muted)] text-sm font-mono">
+          > Midterm content will be documented here soon...
+        </div>
+      </div>
+
+      <!-- Final Period Tab -->
+      <div id="itc508ContentFinal" class="hidden space-y-6 animate-fade-in">
+        <div class="flex items-center justify-center p-12 text-[var(--text-card-muted)] text-sm font-mono">
+          > Final content will be documented here soon...
+        </div>
+      </div>
+
     </div>
+</div>
 
     <!-- VIEW 2: ITC-C506 -->
     <div id="viewITC506" class="hidden space-y-6">
@@ -1495,7 +1534,74 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     }
 
     let currentFilter = 'intro';
-    function updateFilterTabs() {
+    
+    let currentFilter508 = 'intro';
+    function updateFilterTabs508() {
+      const isLight = document.documentElement.classList.contains('theme-light');
+      const tabs = ['intro', 'prelim', 'midterm', 'final', 'all'];
+      const map = {
+        intro: 'itc508TabIntro',
+        prelim: 'itc508TabPrelim',
+        midterm: 'itc508TabMidterm',
+        final: 'itc508TabFinal',
+        all: 'itc508TabAll'
+      };
+
+      tabs.forEach(t => {
+        const el = document.getElementById(map[t]);
+        if (el) {
+          if (t === currentFilter508) {
+            el.style.backgroundColor = isLight ? '#161619' : '#ededf0';
+            el.style.color = isLight ? '#ffffff' : '#111113';
+            el.style.borderColor = isLight ? '#161619' : '#ededf0';
+            el.style.fontWeight = '600';
+          } else {
+            el.style.backgroundColor = 'transparent';
+            el.style.color = 'var(--text-card-body)';
+            el.style.borderColor = 'var(--border-card)';
+            el.style.fontWeight = '500';
+          }
+        }
+      });
+    }
+
+    function filterItc508(period) {
+      currentFilter508 = period;
+      updateFilterTabs508();
+
+      const introSec = document.getElementById('itc508ContentIntro');
+      const prelimSec = document.getElementById('itc508ContentPrelim');
+      const midtermSec = document.getElementById('itc508ContentMidterm');
+      const finalSec = document.getElementById('itc508ContentFinal');
+
+      if (period === 'all') {
+        introSec.style.display = 'block';
+        prelimSec.style.display = 'block';
+        midtermSec.style.display = 'block';
+        finalSec.style.display = 'block';
+      } else if (period === 'intro') {
+        introSec.style.display = 'block';
+        prelimSec.style.display = 'none';
+        midtermSec.style.display = 'none';
+        finalSec.style.display = 'none';
+      } else if (period === 'prelim') {
+        introSec.style.display = 'none';
+        prelimSec.style.display = 'block';
+        midtermSec.style.display = 'none';
+        finalSec.style.display = 'none';
+      } else if (period === 'midterm') {
+        introSec.style.display = 'none';
+        prelimSec.style.display = 'none';
+        midtermSec.style.display = 'block';
+        finalSec.style.display = 'none';
+      } else if (period === 'final') {
+        introSec.style.display = 'none';
+        prelimSec.style.display = 'none';
+        midtermSec.style.display = 'none';
+        finalSec.style.display = 'block';
+      }
+    }
+function updateFilterTabs() {
       const isLight = document.documentElement.classList.contains('theme-light');
       const tabs = ['intro', 'prelim', 'midterm', 'final', 'all'];
       const map = {
@@ -1628,6 +1734,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     });
 
     // Initial styling run
+    filterItc508('intro');
     filterItc('intro');
     updateNavStyles();
         
