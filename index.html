@@ -93,10 +93,10 @@
     (function() {
       try {
         const saved = localStorage.getItem('portfolio_theme');
-        if (saved === 'light') {
-          document.documentElement.classList.add('theme-light');
-        } else {
+        if (saved === 'dark') {
           document.documentElement.classList.remove('theme-light');
+        } else {
+          document.documentElement.classList.add('theme-light');
         }
       } catch(e) {}
     })();
