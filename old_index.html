@@ -124,15 +124,11 @@
       <div class="flex items-center gap-2.5">
         <!-- Course switcher -->
         <nav class="flex items-center p-1 rounded-lg border border-[var(--border-header)] text-xs font-medium bg-[var(--bg-header)]">
-          <button onclick="switchTab('itc508')" id="topBtn508" class="px-3 py-1 rounded-md font-semibold transition">
-            ITC-C508
-          </button>
+          
           <button onclick="switchTab('itc506')" id="topBtn506" class="px-3 py-1 rounded-md opacity-70 hover:opacity-100 transition">
             ITC-C506
           </button>
-          <button onclick="switchTab('emc')" id="topBtnEmc" class="px-3 py-1 rounded-md opacity-70 hover:opacity-100 transition">
-            EMC C102
-          </button>
+          
         </nav>
 
         <!-- Theme Toggle Button with Real SVG Icons -->
@@ -205,7 +201,7 @@
       <div>
         <span class="text-[11px] uppercase tracking-wider text-[var(--text-page)] opacity-70 font-mono font-semibold block">Selected Course Workspace</span>
         <h2 id="activeWorkspaceTitle" class="text-lg sm:text-xl font-bold text-[var(--text-page)]">
-          ITC-C508: IT Elective 4
+          ITC-C506: IT Elective 3
         </h2>
       </div>
 
@@ -231,7 +227,7 @@
           <span class="px-2 py-0.5 rounded bg-[var(--bg-well)] text-[var(--text-card-title)] border border-[var(--border-well)]">ITC-C508-204I</span>
         </div>
         <h3 class="text-lg font-bold text-[var(--text-card-title)]">
-          ITC-C508: IT Elective 4
+          ITC-C506: IT Elective 3
         </h3>
         <p class="text-xs sm:text-sm text-[var(--text-card-body)] leading-relaxed">
           Advanced Machine Learning and Deep Learning architectures. Developing foundational predictive systems, real-time Natural Language Processing models, and personal academic reflections at Jose Rizal University.
@@ -240,7 +236,9 @@
 
       <div class="space-y-5">
         <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3.5 transition-all duration-200">
-          
+          <div class="text-xs text-[var(--text-card-muted)] font-mono pb-2 border-b border-[var(--border-well)]">
+            ITC-C508 &bull; Submission 01
+          </div>
           <h4 class="text-xl sm:text-2xl font-bold text-[var(--text-card-title)] tracking-tight">
             Deep Learning Application and Explainable AI for Proactive IT Infrastructure Support
           </h4>
@@ -276,7 +274,9 @@
         </article>
 
         <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3.5 transition-all duration-200">
-          
+          <div class="text-xs text-[var(--text-card-muted)] font-mono pb-2 border-b border-[var(--border-well)]">
+            ITC-C508 &bull; Submission 02
+          </div>
           <h4 class="text-xl sm:text-2xl font-bold text-[var(--text-card-title)] tracking-tight">
             Modern Natural Language Processing for Real-Time Adaptive Dialogue
           </h4>
@@ -305,9 +305,11 @@
         </article>
 
         <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3.5 transition-all duration-200">
-          
+          <div class="text-xs text-[var(--text-card-muted)] font-mono pb-2 border-b border-[var(--border-well)]">
+            ITC-C508 &bull; Submission 03
+          </div>
           <h4 class="text-xl sm:text-2xl font-bold text-[var(--text-card-title)] tracking-tight">
-            Personal Reflection and Academic Expectations for ITC-C508: IT Elective 4
+            Personal Reflection and Academic Expectations for ITC-C506: IT Elective 3
           </h4>
           
       <div class="space-y-3.5 text-sm leading-relaxed text-[var(--text-card-body)]">
@@ -1427,10 +1429,13 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     </div>
   </div>
 
-  
+  <footer class="border-t border-[var(--border-header)] py-8 text-xs text-[var(--text-page)] opacity-70 text-center space-y-1 mt-8 font-mono relative z-10">
+    <div>Anthony Mijares &bull; Jose Rizal University &bull; BSIT Academic E-Portfolio</div>
+    <div class="text-[11px]">ITC-C506: IT Elective 3</div>
+  </footer>
 
   <script>
-    let currentCourse = 'itc508';
+    let currentCourse = 'itc506';
 
     const ICON_SUN_JS = `<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
     const ICON_MOON_JS = `<svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
@@ -1516,7 +1521,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
 
       if (course === 'itc508') {
         v508.classList.remove('hidden');
-        title.textContent = 'ITC-C508: IT Elective 4';
+        title.textContent = 'ITC-C506: IT Elective 3';
       } else if (course === 'itc506') {
         v506.classList.remove('hidden');
         title.textContent = 'ITC-C506: IT Elective 3 (Archive)';
@@ -1527,7 +1532,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     try {
       const savedBg = localStorage.getItem('portfolio_console_ambient');
       if (savedBg !== null) {
-        consoleBgEnabled = (savedBg === 'true');
+        // Force it true for now if the user toggled it off accidentally
+        consoleBgEnabled = true;
+        localStorage.setItem('portfolio_console_ambient', 'true');
       }
     } catch(e) {}
 
