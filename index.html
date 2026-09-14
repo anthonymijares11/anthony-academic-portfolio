@@ -1787,14 +1787,8 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         }
       });
 
-      const toggleDetailsBtn = document.getElementById('toggleAllBtn');
-      if (toggleDetailsBtn) {
-        toggleDetailsBtn.style.backgroundColor = isLight ? '#ffffff' : '#18181b';
-        toggleDetailsBtn.style.color = isLight ? '#161619' : '#f4f4f5';
-        toggleDetailsBtn.style.borderColor = isLight ? '#e2e2e7' : '#27272a';
-      }
-
       updateFilterTabs();
+      updateFilterTabs508();
     }
 
     function switchTab(course) {
