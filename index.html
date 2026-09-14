@@ -111,16 +111,9 @@
 
   <!-- Top Sticky Header -->
   <header class="sticky top-0 z-50 backdrop-blur-md transition-colors duration-200 border-b border-[var(--border-header)] bg-[var(--bg-header)]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-end">
       
-      <!-- Brand -->
-      <div class="flex items-center gap-2.5">
-        <a href="#about" class="text-sm font-bold tracking-tight text-[var(--text-page)] hover:opacity-80 transition">
-          Anthony Mijares
-        </a>
-        <span class="opacity-40">&bull;</span>
-        <span class="text-sm opacity-80">Academic E-Portfolio</span>
-      </div>
+
 
       <!-- Controls -->
       <div class="flex items-center gap-2.5">
@@ -243,11 +236,12 @@
           <button onclick="filterItc508('midterm')" id="itc508TabMidterm" class="hidden px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Midterm Period</button>
           <button onclick="filterItc508('final')" id="itc508TabFinal" class="hidden px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">Final Period</button>
           <button onclick="filterItc508('all')" id="itc508TabAll" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer font-medium">All</button>
-          <button onclick="toggleAllDetails()" class="px-3.5 py-1.5 rounded-lg border transition shadow-xs cursor-pointer inline-flex items-center gap-1.5 font-medium ">
-            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="7 15 12 20 17 15"></polyline><polyline points="7 9 12 4 17 9"></polyline></svg>
-            <span class="toggleAllLabel">Expand All Details</span>
-          </button>
         </div>
+
+        <button onclick="toggleAllDetails()" class="text-xs font-mono px-3 py-1.5 rounded-lg border transition shadow-xs cursor-pointer inline-flex items-center gap-1.5 font-medium">
+          <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="7 15 12 20 17 15"></polyline><polyline points="7 9 12 4 17 9"></polyline></svg>
+          <span class="toggleAllLabel">Expand All Details</span>
+        </button>
       </div>
 
 
