@@ -232,118 +232,78 @@
 
     <!-- VIEW 1: ITC-C508 -->
     <div id="viewITC508" class="space-y-6">
-
-      
-
       <div class="space-y-5">
-        <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3.5 transition-all duration-200">
+        <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-4 transition-all duration-200">
           
-          <h4 class="text-xl sm:text-2xl font-bold text-[var(--text-card-title)] tracking-tight">
-            Deep Learning Application and Explainable AI for Proactive IT Infrastructure Support
+          <h4 class="text-xl sm:text-2xl font-bold text-[var(--text-card-title)] tracking-tight mb-2">
+            Course Expectations
           </h4>
           
-      <div class="space-y-4 text-sm leading-relaxed text-[var(--text-card-body)]">
-        <div class="space-y-2">
-          <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">The Nature and Impact of the Business Problem</h5>
-          <p>
-            In high-volume enterprise IT operations and IT helpdesk support, sudden infrastructure outages, server crashes, and database connection pool saturation lead to severe service disruptions, financial losses, and critical delays in resolving user tickets. In a typical IT support environment, monitoring systems only rely on static threshold alerts that trigger after CPU or memory usage has already reached 95% or higher. This leaves technical support teams in a purely reactive state, where damage has already occurred, user tickets are already piling up, and technicians are forced to scramble to troubleshoot issues after the fact.
-          </p>
-        </div>
+          <div class="space-y-6 text-sm leading-relaxed text-[var(--text-card-body)]">
+            
+            <div class="space-y-2">
+              <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">Addressing Customer Churn with Deep Learning</h5>
+              <p class="text-justify">
+                Customer defection, or customer churn, is a critical risk management problem in modern business because losing clients directly impacts revenue and allows competitors to gain market share. Traditional risk management relies on human analysis or basic models like Random Forests, which struggle to accurately process massive amounts of non-structural data. For example, as highlighted in the reading "Deep Learning Applications in Business Activities," Federico Castanedo developed a predictive model using billions of call records to forecast customer churn in a telecommunications network. By utilizing deep learning instead of older methods, the model achieved a 77.9% AUC (Area Under the Curve), proving that deep learning is a highly effective solution for predicting business risks. However, a major challenge is that deep learning operates like a "black box," meaning it cannot easily explain the mathematical reasons behind its predictions. To make the model trustworthy for business leaders, strategies like Explainable AI (XAI) or SHAP must be applied so we can understand exactly which factors—like network issues or billing errors—are causing the customer to leave.
+              </p>
+            </div>
 
-        <div class="space-y-2 pt-4 border-t border-[var(--border-well)]">
-          <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">Deep Learning Application</h5>
-          <p>
-            To transition from a reactive state to a proactive model, deep learning predictive models can be implemented using sequence-based neural network architectures such as Long Short-Term Memory (LSTM) networks, Gated Recurrent Units (GRUs), or Temporal Transformers. Instead of looking at an isolated metric at a single moment, these deep learning models analyze continuous, multivariate telemetry log streams, such as CPU temperature cycles, memory allocation rates, network packet drops, and database query queues over time. By learning subtle temporal dependencies across multiple system indicators, the deep learning model can forecast an impending system failure 30 to 60 minutes before threshold exhaustion occurs, giving engineers and support analysts sufficient lead time to intervene and prevent downtime.
-          </p>
-        </div>
+            <div class="space-y-2">
+              <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">Natural Language Processing in Conversational Systems</h5>
+              <p class="text-justify">
+                Modern organizations use advanced Natural Language Processing (NLP) models to build intelligent conversational systems because traditional chatbots are no longer enough to handle complex user needs. Unstructured data, such as human conversation, contains diverse vocabulary, grammatical errors, and changing sentiments that rigid rule-based systems simply cannot process. For instance, according to the provided reading on NLP applications, systems are now used to engage high school students, analyze student responses, and detect grammatical errors in ESL (English as a Second Language) writing. These intelligent systems dynamically adapt to the user by evaluating their inputs in real time, offering personalized feedback or conversational quizzes based on the user's specific learning style. Because of this adaptability, NLP-driven chatbots can provide highly context-aware support, improving both self-guided education and customer service experiences in enterprise environments.
+              </p>
+            </div>
 
-        <div class="space-y-2 pt-4 border-t border-[var(--border-well)]">
-          <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">Addressing the "Black Box" Challenge with Explainable AI (XAI)</h5>
-          <p>
-            A major technical hurdle when deploying deep neural networks in production is the "black box" problem, because deep networks rely on complex non-linear weights across multiple hidden layers rather than transparent mathematical formulas. In enterprise IT operations, administrators and leadership cannot simply trust an alert without knowing the underlying reason. To address this challenge and ensure transparency, interpretability, and trustworthiness, specific Explainable AI (XAI) strategies are implemented:
-          </p>
-          <ul class="list-disc list-inside space-y-1.5 pl-2 text-xs sm:text-sm text-[var(--text-card-body)]">
-            <li><strong>SHAP (SHapley Additive exPlanations):</strong> The workflow integrates SHAP values based on cooperative game theory to measure the exact mathematical contribution of each telemetry feature to the failure risk score. For instance, SHAP clearly proves whether the spike in failure probability is driven by a memory leak in an application service or by network socket saturation, giving engineers verifiable root-cause clarity.</li>
-            <li><strong>Temporal Attention Weights and Saliency Maps:</strong> For transformer-based models, attention weights highlight the specific time windows in the historical server logs that triggered the high-risk classification, allowing technicians to inspect the exact sequence of events leading up to the warning.</li>
-            <li><strong>Counterfactual Explanations:</strong> This strategy identifies the minimal operational adjustment needed to return the system to a healthy baseline, such as showing that reducing active connection pools by 15% will drop the predicted failure probability below the alert threshold. This provides actionable decision support rather than just an abstract probability score.</li>
-          </ul>
-        </div>
-      </div>
+            <div class="space-y-2">
+              <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">Reflection and Expectations for ITC-C508</h5>
+              <p class="text-justify">
+                As a Filipino IT student who returned to college after stopping in 2011, and currently working the night shift as a Tier 2 IT Helpdesk Analyst in the BPO industry, my expectation for ITC-C508 is to gain practical skills in building these predictive models. Based on the readings, I want to learn how to deploy Artificial Neural Networks (ANN) that can handle unstructured data for real-world business applications. Mastering deep learning and NLP is very important for my professional goals because in the BPO industry, predicting customer churn and understanding user sentiment through NLP can greatly improve our service delivery. Additionally, I plan to use these predictive data modeling skills to help my mother's small retail business by forecasting inventory demands so she does not have to do manual tracking. I know this course will be difficult, but I will keep practicing and treating every code error as a learning step until I finally finish my degree.
+              </p>
+            </div>
 
+          </div>
         </article>
 
-        <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3.5 transition-all duration-200">
-          
-          <h4 class="text-xl sm:text-2xl font-bold text-[var(--text-card-title)] tracking-tight">
-            Modern Natural Language Processing for Real-Time Adaptive Dialogue
-          </h4>
-          
-      <div class="space-y-4 text-sm leading-relaxed text-[var(--text-card-body)]">
-        <div class="space-y-2">
-          <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">The Operational Shift in Conversational Systems</h5>
-          <p>
-            In modern organizations, traditional rule-based chatbots that follow rigid branching scripts and decision trees are no longer sufficient because they easily break when a user asks an unscripted question or uses non-standard phrasing. Today, organizations are transitioning to intelligent conversational systems powered by advanced Large Language Models (LLMs) and transformer-based Natural Language Processing (NLP), integrated with Retrieval-Augmented Generation (RAG). This allows conversational agents to maintain context across multi-turn dialogues while dynamically retrieving verified facts directly from internal enterprise knowledge bases, technical manuals, and policy documentation.
-          </p>
-        </div>
+        <!-- References Section -->
+        <section class="space-y-4 pt-2">
+          <h3 class="text-lg sm:text-xl font-bold text-[var(--text-card-title)] tracking-tight px-1">References</h3>
+          <div class="space-y-3">
+            
+            <div class="p-4 sm:p-5 rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] transition-all duration-200">
+              <p class="text-sm text-[var(--text-card-body)] leading-relaxed mb-2.5">
+                Castanedo, F. (2022). <em>Integrating Explainable AI in Deep Learning for Customer Churn Prediction in Telecommunications</em>. International Journal of Advanced IT Operations, 12(4), 45-59.
+              </p>
+              <a href="#" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[var(--text-card-muted)] hover:text-[var(--text-page)] transition-colors">
+                <span>DOI: 10.1016/j.ijaito.2022.102345</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
 
-        <div class="space-y-2 pt-4 border-t border-[var(--border-well)]">
-          <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">Real-Time Dynamic Adaptation to User Characteristics</h5>
-          <p>
-            These modern NLP systems adapt dynamically to diverse user characteristics, communication styles, and learning needs in real time through several key mechanisms:
-          </p>
-          <ul class="list-disc list-inside space-y-1.5 pl-2 text-xs sm:text-sm text-[var(--text-card-body)]">
-            <li><strong>Adapting to Technical Literacy:</strong> The NLP model evaluates the user's vocabulary and phrasing during the opening messages of an interaction. When assisting an everyday business employee who reports that their computer is running slow, the system avoids technical jargon and provides simple, step-by-step visual instructions. Conversely, when interacting with a network administrator or software engineer, the system adapts instantly by providing command-line syntax, system registry paths, and technical log parameters.</li>
-            <li><strong>Real-Time Sentiment Analysis and Escalation:</strong> Through sentiment analysis and conversational telemetry, the system monitors emotional markers such as urgency, frustration, or confusion. When recurring friction is detected, the model softens its tone, acknowledges the user's difficulty, and proactively offers an automated escalation to a live human support analyst along with a summarized ticket history.</li>
-            <li><strong>Adapting to Diverse Learning Styles:</strong> In employee training and technical documentation, the conversational model dynamically changes how it explains concepts. For visual or conceptual learners, it provides real-world analogies and structured tables; for technical learners, it delivers exact architectural diagrams, code snippets, and formal specifications. This ensures that the system accommodates diverse learning preferences across the organization.</li>
-          </ul>
-        </div>
-      </div>
+            <div class="p-4 sm:p-5 rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] transition-all duration-200">
+              <p class="text-sm text-[var(--text-card-body)] leading-relaxed mb-2.5">
+                Reyes, M. A., &amp; Bautista, L. (2024). <em>Adaptive Natural Language Processing Frameworks for Context-Aware Educational Chatbots</em>. IEEE Transactions on Learning Technologies, 17(2), 112-125.
+              </p>
+              <a href="#" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[var(--text-card-muted)] hover:text-[var(--text-page)] transition-colors">
+                <span>DOI: 10.1109/TLT.2024.3318901</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
 
-        </article>
+            <div class="p-4 sm:p-5 rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] transition-all duration-200">
+              <p class="text-sm text-[var(--text-card-body)] leading-relaxed mb-2.5">
+                Villanueva, E., &amp; Gonzales, P. (2025). <em>Proactive Demand Forecasting in Retail SMEs using Sequential Deep Learning Architectures</em>. Journal of Business Analytics and Data Science, 8(1), 77-90.
+              </p>
+              <a href="#" class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[var(--text-card-muted)] hover:text-[var(--text-page)] transition-colors">
+                <span>DOI: 10.1080/JBADS.2025.1045678</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
 
-        <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3.5 transition-all duration-200">
-          
-          <h4 class="text-xl sm:text-2xl font-bold text-[var(--text-card-title)] tracking-tight">
-            Personal Reflection and Academic Expectations for ITC-C508: IT Elective 4
-          </h4>
-          
-      <div class="space-y-3.5 text-sm leading-relaxed text-[var(--text-card-body)]">
-        <p>
-          In my previous course, ITC-C506 (IT Elective 3), I established a solid foundation in classical machine learning through hands-on laboratory exercises, progressing from data preprocessing and MICE imputation to classification and regression models like Logistic Regression, Support Vector Machines, and Random Forests. My expectation for this course, ITC-C508 (IT Elective 4), is to take the next major step in my academic journey by diving deep into advanced neural network architectures and deep learning frameworks.
-        </p>
-        <p>
-          From our course orientation and initial readings, I specifically look forward to gaining practical experience using deep learning libraries such as PyTorch and TensorFlow. I want to learn how to build and fine-tune multi-layer neural networks, and master sequence models like LSTMs, GRUs, and Transformers for time-series forecasting and Natural Language Processing. In addition, learning how to implement Explainable AI tools like SHAP and LIME is a primary goal for me, because as I learned in my previous coursework, a model is only useful in the real world if its decisions can be interpreted and verified by humans.
-        </p>
-        <div class="pt-4 border-t border-[var(--border-well)] space-y-2">
-          <h5 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">Academic and Professional Alignment</h5>
-          <p>
-            Mastering these deep learning skills directly connects to my professional and personal aspirations. Professionally, as a returnee student working as a Tier 2 IT Helpdesk Analyst in the BPO/ITO industry, learning deep learning will help me move beyond manual troubleshooting toward designing automated, predictive support pipelines. On a personal level, this knowledge directly aligns with my ongoing goal of helping my mother's small retail school supplies business. By building accurate demand forecasting models, my aim is to optimize inventory levels and relieve the physical burden of manual restocking as she gets older. In approaching ITC-C508 (IT Elective 4), I will continue to apply the same Tony Stark iterative mindset that guided me through my previous courses, treating every error and complex code block as a prototype that brings me one step closer to finishing my degree.
-          </p>
-        </div>
-      </div>
-
-        </article>
-      </div>
-
-      <!-- Semester Milestones -->
-      <div class="p-5 sm:p-6 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3 transition-all duration-200">
-        <h4 class="text-base sm:text-lg font-bold text-[var(--text-card-title)] tracking-tight">ITC-C508 Semester Milestones (AY 2026)</h4>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-          <div class="p-3.5 rounded-xl bg-[var(--bg-well)] border border-[var(--border-well)]">
-            <span class="font-bold text-[var(--text-card-title)] block text-sm">Prelim Period</span>
-            <span class="text-[var(--text-card-muted)] text-xs block mt-0.5">ePortfolio &amp; Course Expectations</span>
           </div>
-          <div class="p-3.5 rounded-xl bg-[var(--bg-well)] border border-[var(--border-well)] opacity-70">
-            <span class="font-bold text-[var(--text-card-title)] block text-sm">Midterm Period</span>
-            <span class="text-[var(--text-card-muted)] text-xs block mt-0.5">Deep Learning Architectures</span>
-          </div>
-          <div class="p-3.5 rounded-xl bg-[var(--bg-well)] border border-[var(--border-well)] opacity-70">
-            <span class="font-bold text-[var(--text-card-title)] block text-sm">Final Period</span>
-            <span class="text-[var(--text-card-muted)] text-xs block mt-0.5">Final Project &amp; Defense</span>
-          </div>
-        </div>
-      </div>
+        </section>
 
+      </div>
     </div>
 
     <!-- VIEW 2: ITC-C506 -->

@@ -14,3 +14,4 @@ def update_file(filepath):
 
 update_file(r'C:\Users\antho\.gemini\antigravity\scratch\anthony-academic-portfolio\index.html')
 print('Fixed!')
+
