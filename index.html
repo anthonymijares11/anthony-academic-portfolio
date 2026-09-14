@@ -339,7 +339,7 @@
       <!-- Filter Controls & Expand All Container (LOGICAL ORDER: All -> Intro -> Prelim -> Midterm -> Final) -->
       <div class="flex flex-wrap items-center justify-between gap-3">
         <div class="flex flex-wrap items-center gap-2 text-xs">
-          <button onclick="filterItc('all')" id="itcTabAll" class="px-3.5 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-medium transition-all duration-200 shadow-sm hover:-translate-y-0.5">All Submissions</button>
+          <button onclick="filterItc('all')" id="itcTabAll" class="px-3.5 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-medium transition-all duration-200 shadow-sm hover:-translate-y-0.5">All</button>
           <button onclick="filterItc('intro')" id="itcTabIntro" class="px-3.5 py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-all duration-200 hover:-translate-y-0.5">Course Introduction</button>
           <button onclick="filterItc('prelim')" id="itcTabPrelim" class="px-3.5 py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-all duration-200 hover:-translate-y-0.5">Prelim Period (5)</button>
           <button onclick="filterItc('midterm')" id="itcTabMidterm" class="px-3.5 py-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-all duration-200 hover:-translate-y-0.5">Midterm Period (3)</button>
@@ -361,14 +361,9 @@
         <div id="introSection" class="space-y-6" data-period="intro">
           
           <article class="card-container p-6 sm:p-8 rounded-2xl space-y-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200">
-            <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800 text-xs text-neutral-500">
-              <div class="inline-flex items-center gap-2.5">
-                <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-                  Course Foundation &amp; Expectations
-                </span>
-                <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-              </div>
-              <span class="font-medium text-neutral-700 dark:text-neutral-300">Author: Anthony Mijares</span>
+            <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+              <span class="font-medium text-neutral-700 dark:text-neutral-300">Course Introduction</span>
+              <span>ITC-C506: IT Elective 3</span>
             </div>
 
             <h4 class="font-serif text-2xl sm:text-3xl text-neutral-900 dark:text-white tracking-tight leading-snug">
@@ -447,16 +442,9 @@
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="prelim">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Prelim Period, Submission 01
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Prelim Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -566,16 +554,9 @@
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="prelim">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Prelim Period, Submission 02
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Prelim Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -685,16 +666,9 @@
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="prelim">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Prelim Period, Submission 03
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Prelim Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -804,16 +778,9 @@
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="prelim">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Prelim Period, Submission 04
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Prelim Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -902,16 +869,9 @@
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="prelim">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Prelim Period, Submission 05
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Prelim Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -1008,16 +968,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="midterm">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Midterm Period, Submission 01
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Midterm Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -1127,16 +1080,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="midterm">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Midterm Period, Submission 02
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Midterm Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -1225,16 +1171,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="midterm">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Midterm Period, Submission 03
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Midterm Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -1330,16 +1269,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="final">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Final Period, Submission 01
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Final Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -1449,16 +1381,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="final">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Final Period, Submission 02
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Final Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -1522,16 +1447,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="final">
       
       <!-- Container Header Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-        <div class="inline-flex items-center gap-2.5">
-          <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-            Final Period, Submission 03
-          </span>
-          <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-        </div>
-        <span class="text-xs text-neutral-400 font-medium">
-          Verified Academic Record
-        </span>
+      <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+        <span class="font-medium text-neutral-700 dark:text-neutral-300">Final Period</span>
+        <span>ITC-C506</span>
       </div>
 
       <!-- Title -->
@@ -1594,16 +1512,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         <!-- FINAL CAPSTONE PROJECT (PROJECT EUPHORIA) -->
         <article class="card-container p-6 sm:p-7 rounded-2xl space-y-4 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200" data-period="final">
           
-          <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-neutral-100 dark:border-neutral-800">
-            <div class="inline-flex items-center gap-2.5">
-              <span class="px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 text-xs font-medium">
-                Final Period, Capstone Research
-              </span>
-              <span class="text-xs text-neutral-500">ITC-C506: IT Elective 3</span>
-            </div>
-            <span class="text-xs text-neutral-400 font-medium">
-              Verified Academic Record
-            </span>
+          <div class="flex items-center justify-between text-xs text-neutral-500 pb-2 border-b border-neutral-100 dark:border-neutral-800/80">
+            <span class="font-medium text-neutral-700 dark:text-neutral-300">Final Period</span>
+            <span>ITC-C506 Capstone</span>
           </div>
 
           <h4 class="font-serif text-xl sm:text-2xl text-neutral-900 dark:text-white tracking-tight leading-snug">
