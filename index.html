@@ -1552,6 +1552,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       } else if (course === 'itc506') {
         v506.classList.remove('hidden');
         title.textContent = 'ITC-C506: IT Elective 3 (Archive)';
+        filterItc('intro');
       } else if (course === 'emc') {
         vEmc.classList.remove('hidden');
         title.textContent = 'EMC C102: Human-Computer Interaction';
@@ -1569,7 +1570,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       updateNavStyles();
     }
 
-    let currentFilter = 'all';
+    let currentFilter = 'intro';
     function updateFilterTabs() {
       const isLight = document.documentElement.classList.contains('theme-light');
       const tabs = ['intro', 'prelim', 'midterm', 'final', 'all'];
@@ -1652,6 +1653,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     }
 
     // Initial styling run
+    filterItc('intro');
     updateNavStyles();
   </script>
 </body>
