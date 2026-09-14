@@ -155,42 +155,46 @@
 
   <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8 relative z-10">
 
-    <section id="about" class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-5 transition-all duration-200">
-      <div class="flex flex-col items-center text-center gap-4">
-        <div class="space-y-1.5">
-          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-card-title)]">
-            Anthony Mijares
-          </h1>
-          <p class="text-sm sm:text-base font-medium text-[var(--text-card-muted)]">
-            Gamer | Student | IT Helpdesk Support Analyst Second Line
-          </p>
-        </div>
-        
-        <img src="assets/anthony_photo.jpg" alt="Anthony Mijares" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover border-2 border-[var(--border-well)] shadow-md">
-        
-        <span class="text-sm font-semibold uppercase tracking-wider text-[var(--text-card-muted)] pt-2">About Me</span>
-      </div>
-
-      <div class="space-y-2.5 text-xs sm:text-sm leading-relaxed text-[var(--text-card-body)] pt-1 text-center max-w-3xl mx-auto">
-        <p>
-          A student of JRU taking up Bachelor of Science in Information Technology. A returnee who started studying college back in 2011 but then stopped due to lack of financial capability. Venture out in Business Process Outsourcing & Information Technology Outsourcing industry, worked his way to fit in and found a job as an IT Service Desk Analyst Second Line that opened an opportunity to return and finish his degree. Currently a fourth-year student, determined to go all-in and finish what he started.
+    <section id="about" class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-6 transition-all duration-200">
+      
+      <!-- 1. Name & Subtitle on Top (Centered) -->
+      <div class="text-center space-y-1.5">
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--text-card-title)]">
+          Anthony Mijares
+        </h1>
+        <p class="text-sm sm:text-base font-medium text-[var(--text-card-muted)]">
+          Gamer | Student | IT Service Desk Analyst Second Line
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs text-[var(--text-card-muted)] font-mono">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">
+      <!-- 2. Two Columns: Image & About Me -->
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+        <img src="assets/anthony_photo.jpg" alt="Anthony Mijares" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover border-2 border-[var(--border-well)] shadow-md shrink-0">
+        
+        <div class="space-y-2.5 text-center sm:text-left flex-grow">
+          <span class="text-sm font-semibold uppercase tracking-wider text-[var(--text-card-muted)] block">About Me</span>
+          <p class="text-xs sm:text-sm leading-relaxed text-[var(--text-card-body)]">
+            A student of JRU taking up Bachelor of Science in Information Technology. A returnee who started studying college back in 2011 but then stopped due to lack of financial capability. Venture out in Business Process Outsourcing & Information Technology Outsourcing industry, worked his way to fit in and found a job as an IT Service Desk Analyst Second Line that opened an opportunity to return and finish his degree. Currently a fourth-year student, determined to go all-in and finish what he started.
+          </p>
+        </div>
+      </div>
+
+      <!-- 3. Badges below everything -->
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-4 border-t border-[var(--border-card)]">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] text-xs font-medium">
           <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
           <span>anthony.mijares@my.jru.edu</span>
         </span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] text-xs font-medium">
           <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
           <span>Jose Rizal University</span>
         </span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)]">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] text-xs font-medium">
           <svg class="w-3.5 h-3.5 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="2"></line><line x1="8" y1="6" x2="10" y2="6"></line><line x1="8" y1="10" x2="10" y2="10"></line><line x1="8" y1="14" x2="10" y2="14"></line><line x1="8" y1="18" x2="10" y2="18"></line><line x1="14" y1="6" x2="16" y2="6"></line><line x1="14" y1="10" x2="16" y2="10"></line><line x1="14" y1="14" x2="16" y2="14"></line><line x1="14" y1="18" x2="16" y2="18"></line></svg>
           <span>Dept of Computer Studies &amp; Engineering</span>
         </span>
       </div>
+
     </section>
 
     <!-- Course Navigation Bar -->
