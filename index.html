@@ -210,9 +210,9 @@
 
     <!-- Course Navigation Bar -->
     <div class="flex flex-wrap items-center justify-between gap-4 p-5 sm:p-6 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)]">
-      <div>
+      <div class="min-w-0 flex-1">
         <span class="text-sm font-medium text-[var(--text-card-muted)] block mb-1">Selected Course Workspace</span>
-        <h2 id="activeWorkspaceTitle" class="text-lg sm:text-xl font-bold text-[var(--text-page)]">
+        <h2 id="activeWorkspaceTitle" class="text-lg sm:text-xl font-bold text-[var(--text-page)] truncate">
           ITC-C508: IT Elective 4
         </h2>
       </div>
@@ -1497,10 +1497,10 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         title.textContent = 'ITC-C508: IT Elective 4';
       } else if (course === 'itc506') {
         v506.classList.remove('hidden');
-        title.textContent = 'ITC-C506: IT Elective 3 (Archive)';
+        title.textContent = 'ITC-C506: IT Elective 3';
       } else if (course === 'emc') {
         vEmc.classList.remove('hidden');
-        title.textContent = 'EMC C102: Human-Computer Interaction (Archive)';
+        title.textContent = 'EMC C102: Human-Computer Interaction';
       }
 
       updateNavStyles();

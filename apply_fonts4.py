@@ -28,3 +28,4 @@ def update_file(filepath):
 update_file(r'C:\Users\antho\.gemini\antigravity\scratch\anthony-academic-portfolio\index.html')
 update_file(r'C:\Users\antho\.gemini\antigravity\scratch\anthony-academic-portfolio\consoles.html')
 print('Updated to System UI')
+
