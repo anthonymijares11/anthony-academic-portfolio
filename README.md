@@ -2,7 +2,7 @@
 
 A high-performance, responsive academic e-portfolio built for **Jose Rizal University (JRU)**, College of Information Technology.
 
-* **Author:** Anthony Mijares (3rd Year BSIT Returnee &amp; Tier 2 IT Helpdesk Support Analyst)
+* **Author:** Anthony Mijares (4th Year BSIT Senior Student & Returnee &amp; Tier 2 IT Helpdesk Support Analyst)
 * **Active Course:** ITC-C508: IT Elective 4 (Advanced Machine Learning &amp; Deep Learning)
 * **Archived Coursework:** ITC-C506: IT Elective 3 (Predictive Analytics)
 * **External Design Portfolio:** EMC C102: Human-Computer Interaction (Wix Redirect)
