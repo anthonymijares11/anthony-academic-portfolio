@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Console Animated Background &mdash; Dark Edition (1983-2025)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Geist', 'sans-serif'],
+            mono: ['Geist Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg-canvas: #0d0d10;
+      --text-main: #ededf0;
+      --text-muted: #8a8a94;
+      --hud-bg: rgba(18, 18, 22, 0.88);
+      --hud-border: rgba(255, 255, 255, 0.12);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --btn-active-bg: rgba(255, 255, 255, 0.15);
+      --btn-active-text: #ffffff;
+      --line-color: 255, 255, 255;
+    }
+    html.theme-light {
+      --bg-canvas: #f4f4f7;
+      --text-main: #161619;
+      --text-muted: #6e6e78;
+      --hud-bg: rgba(255, 255, 255, 0.92);
+      --hud-border: rgba(0, 0, 0, 0.10);
+      --card-bg: rgba(0, 0, 0, 0.03);
+      --card-border: rgba(0, 0, 0, 0.06);
+      --btn-active-bg: #161619;
+      --btn-active-text: #ffffff;
+      --line-color: 24, 24, 27;
+    }
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(150, 150, 150, 0.25); border-radius: 9999px; }
+  </style>
+</head>
+<body class="h-full w-full overflow-hidden select-none font-sans relative antialiased">
+
+  <!-- Interactive Background Canvas -->
+  <canvas id="bgCanvas" class="absolute inset-0 w-full h-full block z-0"></canvas>
+
+  <!-- Top Floating Header Bar -->
+  <header class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+    <div class="flex items-center gap-3 pointer-events-auto bg-[var(--hud-bg)] backdrop-blur-md px-3.5 py-2 rounded-xl border border-[var(--hud-border)] shadow-lg">
+      <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+      <span class="text-xs font-semibold tracking-wide">Console Background Engine</span>
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[var(--card-bg)] border border-[var(--hud-border)] opacity-70">14 Consoles &bull; 1983-2025</span>
+    </div>
+
+    <!-- Quick Action Controls -->
+    <div class="flex items-center gap-2 pointer-events-auto">
+      <!-- Theme Switcher -->
+      <button onclick="toggleTheme()" id="themeToggleBtn" class="px-3 py-1.5 rounded-xl bg-[var(--hud-bg)] backdrop-blur-md border border-[var(--hud-border)] text-xs font-medium hover:opacity-80 transition shadow-lg flex items-center gap-1.5 cursor-pointer">
+        <span id="themeIcon">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </span>
+        <span id="themeLabel">Light Mode</span>
+      </button>
+
+      <!-- Fullscreen -->
+      <button onclick="toggleFullscreen()" class="px-3 py-1.5 rounded-xl bg-[var(--hud-bg)] backdrop-blur-md border border-[var(--hud-border)] text-xs font-medium hover:opacity-80 transition shadow-lg flex items-center gap-1.5 cursor-pointer">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        <span>Fullscreen</span>
+      </button>
+
+      <!-- Customize Toggle -->
+      <button onclick="toggleHud()" class="px-3 py-1.5 rounded-xl bg-[var(--hud-bg)] backdrop-blur-md border border-[var(--hud-border)] text-xs font-medium hover:opacity-80 transition shadow-lg flex items-center gap-1.5 cursor-pointer">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span id="hudToggleLabel">Customize</span>
+      </button>
+
+      <!-- Get Embed Code -->
+      <button onclick="openExportModal()" class="px-3.5 py-1.5 rounded-xl bg-[var(--text-main)] text-[var(--bg-canvas)] text-xs font-semibold hover:opacity-90 transition shadow-lg flex items-center gap-1.5 cursor-pointer">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <span>Get Code</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Interactive Control HUD -->
+  <aside id="controlHud" class="absolute bottom-4 left-4 right-4 sm:right-auto sm:w-[380px] max-h-[82vh] bg-[var(--hud-bg)] backdrop-blur-xl border border-[var(--hud-border)] rounded-2xl shadow-2xl z-20 flex flex-col overflow-hidden transition-all duration-300">
+    <!-- Header -->
+    <div class="px-5 py-3.5 border-b border-[var(--hud-border)] flex items-center justify-between shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-bold uppercase tracking-wider">Background Customizer</span>
+      </div>
+      <button onclick="resetDefaults()" class="text-[11px] font-mono opacity-60 hover:opacity-100 transition cursor-pointer">Reset</button>
+    </div>
+
+    <!-- Body -->
+    <div class="p-5 space-y-5 overflow-y-auto text-xs">
+
+      <!-- Animation Modes -->
+      <div class="space-y-2">
+        <label class="font-semibold block opacity-90">Animation Dynamic</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="setMode('constellation')" id="btnModeConstellation" class="mode-btn p-2.5 rounded-xl border border-[var(--hud-border)] bg-[var(--card-bg)] font-medium text-left transition hover:opacity-100 cursor-pointer">
+            <span class="block font-semibold">Constellation</span>
+            <span class="text-[10px] opacity-60 block">Drifting with mesh lines</span>
+          </button>
+          <button onclick="setMode('timeline')" id="btnModeTimeline" class="mode-btn p-2.5 rounded-xl border border-[var(--hud-border)] bg-[var(--card-bg)] font-medium text-left transition hover:opacity-100 cursor-pointer">
+            <span class="block font-semibold">Timeline Stream</span>
+            <span class="text-[10px] opacity-60 block">1983 to 2025 diagonal flow</span>
+          </button>
+          <button onclick="setMode('screensaver')" id="btnModeScreensaver" class="mode-btn p-2.5 rounded-xl border border-[var(--hud-border)] bg-[var(--card-bg)] font-medium text-left transition hover:opacity-100 cursor-pointer">
+            <span class="block font-semibold">Screensaver</span>
+            <span class="text-[10px] opacity-60 block">Nostalgic edge bounce</span>
+          </button>
+          <button onclick="setMode('warp')" id="btnModeWarp" class="mode-btn p-2.5 rounded-xl border border-[var(--hud-border)] bg-[var(--card-bg)] font-medium text-left transition hover:opacity-100 cursor-pointer">
+            <span class="block font-semibold">3D Warp Speed</span>
+            <span class="text-[10px] opacity-60 block">Approaching forward warp</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Color Themes -->
+      <div class="space-y-2">
+        <label class="font-semibold block opacity-90">Logo Palette</label>
+        <div class="grid grid-cols-3 gap-2">
+          <button onclick="setColorTheme('brand')" id="themeBrand" class="theme-btn py-2 px-2 rounded-xl border border-[var(--hud-border)] bg-[var(--card-bg)] font-medium text-center transition cursor-pointer">
+            Authentic Brand
+          </button>
+          <button onclick="setColorTheme('monochrome')" id="themeMono" class="theme-btn py-2 px-2 rounded-xl border border-[var(--hud-border)] bg-[var(--card-bg)] font-medium text-center transition cursor-pointer">
+            Portfolio Calm
+          </button>
+          <button onclick="setColorTheme('cyber')" id="themeCyber" class="theme-btn py-2 px-2 rounded-xl border border-[var(--hud-border)] bg-[var(--card-bg)] font-medium text-center transition cursor-pointer">
+            Neon Glow
+          </button>
+        </div>
+      </div>
+
+      <!-- Sliders -->
+      <div class="space-y-3.5 pt-2 border-t border-[var(--hud-border)]">
+        <!-- Speed -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-between text-[11px]">
+            <span class="opacity-80 font-medium">Motion Speed</span>
+            <span id="valSpeed" class="font-mono opacity-60">1.0x</span>
+          </div>
+          <input type="range" id="sliderSpeed" min="0.1" max="2.5" step="0.1" value="1.0" class="w-full accent-current cursor-pointer" oninput="updateSpeed(this.value)">
+        </div>
+
+        <!-- Opacity -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-between text-[11px]">
+            <span class="opacity-80 font-medium">Logo Opacity</span>
+            <span id="valOpacity" class="font-mono opacity-60">40%</span>
+          </div>
+          <input type="range" id="sliderOpacity" min="0.05" max="1.0" step="0.05" value="0.40" class="w-full accent-current cursor-pointer" oninput="updateOpacity(this.value)">
+        </div>
+
+        <!-- Density -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-between text-[11px]">
+            <span class="opacity-80 font-medium">Logo Density</span>
+            <span id="valDensity" class="font-mono opacity-60">28 particles</span>
+          </div>
+          <input type="range" id="sliderDensity" min="14" max="60" step="2" value="28" class="w-full accent-current cursor-pointer" oninput="updateDensity(this.value)">
+        </div>
+
+        <!-- Logo Size -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-between text-[11px]">
+            <span class="opacity-80 font-medium">Base Logo Size</span>
+            <span id="valSize" class="font-mono opacity-60">48px</span>
+          </div>
+          <input type="range" id="sliderSize" min="28" max="96" step="4" value="48" class="w-full accent-current cursor-pointer" oninput="updateSize(this.value)">
+        </div>
+      </div>
+
+      <!-- Consoles Multi-Select Checklist -->
+      <div class="space-y-2 pt-2 border-t border-[var(--hud-border)]">
+        <div class="flex items-center justify-between">
+          <label class="font-semibold opacity-90">Active Consoles (14)</label>
+          <div class="flex gap-2">
+            <button onclick="toggleAllConsoles(true)" class="text-[10px] opacity-70 hover:opacity-100 underline cursor-pointer">All</button>
+            <span class="opacity-30">&bull;</span>
+            <button onclick="toggleAllConsoles(false)" class="text-[10px] opacity-70 hover:opacity-100 underline cursor-pointer">None</button>
+          </div>
+        </div>
+        <div id="consolesList" class="grid grid-cols-2 gap-1.5 max-h-44 overflow-y-auto pr-1"></div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- Mouse Glow -->
+  <div id="mouseAura" class="pointer-events-none fixed -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-radial from-current to-transparent blur-2xl transition-opacity duration-300 opacity-0 z-10"></div>
+
+  <!-- Export Modal -->
+  <div id="exportModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md hidden" role="dialog">
+    <div class="relative w-full max-w-2xl bg-[var(--hud-bg)] border border-[var(--hud-border)] rounded-2xl shadow-2xl p-6 space-y-4 max-h-[90vh] flex flex-col text-[var(--text-main)]">
+      <div class="flex items-center justify-between shrink-0">
+        <div>
+          <h3 class="text-base font-bold">Embed Console Background</h3>
+          <p class="text-xs opacity-70">Ready-to-use drop-in snippet for websites and portfolios.</p>
+        </div>
+        <button onclick="closeExportModal()" class="p-1.5 rounded-lg opacity-60 hover:opacity-100 hover:bg-[var(--card-bg)] transition cursor-pointer">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="relative flex-1 min-h-[300px] overflow-hidden rounded-xl border border-[var(--hud-border)] bg-[var(--bg-canvas)] p-3">
+        <textarea id="exportCodeArea" readonly class="w-full h-full bg-transparent font-mono text-[11px] leading-relaxed text-emerald-500 resize-none outline-none overflow-y-auto p-1"></textarea>
+      </div>
+
+      <div class="flex items-center justify-between pt-2 shrink-0">
+        <span id="copySuccessMsg" class="text-xs text-emerald-500 font-medium opacity-0 transition-opacity">Copied to clipboard!</span>
+        <div class="flex gap-2">
+          <button onclick="closeExportModal()" class="px-4 py-2 rounded-xl bg-[var(--card-bg)] border border-[var(--hud-border)] text-xs font-medium hover:opacity-80 transition cursor-pointer">Done</button>
+          <button onclick="copyExportCode()" class="px-4 py-2 rounded-xl bg-[var(--text-main)] text-[var(--bg-canvas)] text-xs font-semibold hover:opacity-90 transition shadow-md cursor-pointer">Copy Code</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const CONSOLES = [{"id": "nes", "name": "Famicom / NES", "fullName": "Nintendo Entertainment System", "year": 1983, "company": "Nintendo", "brandColor": "#E60012", "viewBox": "0 0 100 100", "svg": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <rect x=\"10\" y=\"24\" width=\"80\" height=\"52\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"4\"/>\n            <!-- D-Pad -->\n            <path d=\"M22 44 h8 v-8 h8 v8 h8 v8 h-8 v8 h-8 v-8 h-8 z\" fill=\"currentColor\"/>\n            <!-- Center Buttons -->\n            <rect x=\"42\" y=\"56\" width=\"6\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n            <rect x=\"52\" y=\"56\" width=\"6\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n            <!-- A and B Buttons -->\n            <circle cx=\"68\" cy=\"52\" r=\"5\" fill=\"#E60012\"/>\n            <circle cx=\"80\" cy=\"52\" r=\"5\" fill=\"#E60012\"/>\n            <!-- Inset Red Stripe -->\n            <line x1=\"20\" y1=\"32\" x2=\"80\" y2=\"32\" stroke=\"#E60012\" stroke-width=\"2\"/>\n        </g>"}, {"id": "genesis", "name": "Sega Genesis / Mega Drive", "fullName": "Sega Genesis / Mega Drive 16-Bit", "year": 1988, "company": "Sega", "brandColor": "#0055A5", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M12 36 h16 v7 h-10 v5 h10 v16 h-16 v-7 h10 v-5 h-10 z\" fill-rule=\"evenodd\"/>\n            <path d=\"M32 36 h15 v7 h-9 v4 h8 v6 h-8 v4 h9 v7 h-15 z\"/>\n            <path d=\"M51 36 h15 v7 h-9 v14 h9 v-5 h-4 v-5 h10 v17 h-21 z\"/>\n            <path d=\"M70 36 h16 v28 h-6 v-7 h-4 v7 h-6 z m6 7 v7 h4 v-7 z\"/>\n            <text x=\"50\" y=\"76\" font-size=\"10\" font-family=\"'Geist', sans-serif\" font-weight=\"900\" text-anchor=\"middle\" letter-spacing=\"2\" fill=\"#0055A5\">16-BIT</text>\n        </g>"}, {"id": "snes", "name": "Super Nintendo (SNES)", "fullName": "Super Nintendo Entertainment System", "year": 1990, "company": "Nintendo", "brandColor": "#7B52AB", "viewBox": "0 0 100 100", "svg": "<g transform=\"translate(50,50) rotate(-25) translate(-50,-50)\">\n            <ellipse cx=\"50\" cy=\"26\" rx=\"16\" ry=\"8\" fill=\"#FFCC00\"/>\n            <ellipse cx=\"74\" cy=\"50\" rx=\"8\" ry=\"16\" fill=\"#0080FF\"/>\n            <ellipse cx=\"50\" cy=\"74\" rx=\"16\" ry=\"8\" fill=\"#00AA44\"/>\n            <ellipse cx=\"26\" cy=\"50\" rx=\"8\" ry=\"16\" fill=\"#FF3333\"/>\n            <circle cx=\"50\" cy=\"50\" r=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" opacity=\"0.3\"/>\n        </g>"}, {"id": "ps1", "name": "PlayStation (PS1)", "fullName": "Sony PlayStation", "year": 1994, "company": "Sony", "brandColor": "#003791", "viewBox": "0 0 100 100", "svg": "<g transform=\"translate(10, 15)\">\n            <path d=\"M22 55 c12 6 36 6 48 0 c-5 4 -16 7 -28 7 c-9 0 -16 -3 -20 -7 z\" fill=\"#F4C300\"/>\n            <path d=\"M12 62 c16 7 48 7 64 0 c-7 5 -22 8 -38 8 c-12 0 -21 -4 -26 -8 z\" fill=\"#00A0B0\"/>\n            <path d=\"M5 69 c20 8 60 8 80 0 c-9 6 -28 9 -48 9 c-16 0 -26 -4 -32 -9 z\" fill=\"#003791\"/>\n            <path d=\"M22 10 h18 c14 0 22 7 22 17 c0 10 -8 17 -22 17 h-7 v18 h-11 z m11 9 v16 h6 c7 0 11 -3 11 -8 c0 -5 -4 -8 -11 -8 z\" fill=\"#DF0024\"/>\n        </g>"}, {"id": "n64", "name": "Nintendo 64 (N64)", "fullName": "Nintendo 64", "year": 1996, "company": "Nintendo", "brandColor": "#E60012", "viewBox": "0 0 100 100", "svg": "<g transform=\"translate(50, 48)\">\n            <path d=\"M0 -34 L28 -18 L28 -4 L0 -20 Z\" fill=\"#00AA44\"/>\n            <path d=\"M0 -34 L-28 -18 L-28 -4 L0 -20 Z\" fill=\"#008833\"/>\n            <path d=\"M-28 -18 L-14 -10 L-14 26 L-28 18 Z\" fill=\"#0055A5\"/>\n            <path d=\"M-28 18 L-14 26 L0 18 L-14 10 Z\" fill=\"#0077CC\"/>\n            <path d=\"M-14 -10 L0 -18 L14 10 L0 18 Z\" fill=\"#E60012\"/>\n            <path d=\"M-14 10 L0 18 L0 34 L-14 26 Z\" fill=\"#B3000E\"/>\n            <path d=\"M14 -10 L28 -18 L28 18 L14 26 Z\" fill=\"#FFCC00\"/>\n            <path d=\"M0 18 L14 26 L28 18 L14 10 Z\" fill=\"#E6B800\"/>\n            <path d=\"M14 26 L28 18 L28 32 L14 40 Z\" fill=\"#CC9900\"/>\n        </g>"}, {"id": "dreamcast", "name": "Sega Dreamcast", "fullName": "Sega Dreamcast", "year": 1998, "company": "Sega", "brandColor": "#FF6600", "viewBox": "0 0 100 100", "svg": "<g fill=\"none\" stroke=\"#FF6600\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <path d=\"M48 50 A 5 5 0 0 1 54 46 A 10 10 0 0 1 62 55 A 16 16 0 0 1 48 68 A 23 23 0 0 1 26 48 A 30 30 0 0 1 53 20 A 37 37 0 0 1 87 52 A 42 42 0 0 1 45 92\" stroke-width=\"7\"/>\n            <circle cx=\"48\" cy=\"50\" r=\"3.5\" fill=\"#FF6600\"/>\n        </g>"}, {"id": "ps2", "name": "PlayStation 2 (PS2)", "fullName": "Sony PlayStation 2", "year": 2000, "company": "Sony", "brandColor": "#002F87", "viewBox": "0 0 100 100", "svg": "<g fill=\"#0080FF\">\n            <path d=\"M14 28 h18 c8 0 14 6 14 14 c0 8 -6 14 -14 14 h-8 v16 h-10 z m10 10 v12 h8 c3 0 5 -2 5 -6 c0 -4 -2 -6 -5 -6 z\"/>\n            <path d=\"M48 58 h18 v6 h-18 v8 h28 v-20 h-18 v-6 h18 v-8 h-28 z\"/>\n            <path d=\"M82 28 h-6 v18 h6 v8 h-12 v8 h18 v-26 h-6 v-8 z\" fill=\"#00C0FF\"/>\n            <rect x=\"76\" y=\"70\" width=\"16\" height=\"8\" fill=\"#00C0FF\"/>\n        </g>"}, {"id": "xbox360", "name": "Xbox 360", "fullName": "Microsoft Xbox 360", "year": 2005, "company": "Microsoft", "brandColor": "#52B043", "viewBox": "0 0 100 100", "svg": "<g>\n            <circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6\" opacity=\"0.4\"/>\n            <path d=\"M50 14 A 36 36 0 0 1 86 50\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M86 50 A 36 36 0 0 1 50 86\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M50 86 A 36 36 0 0 1 14 50\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M14 50 A 36 36 0 0 1 50 14\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M30 30 Q 50 48 30 70 Q 50 56 70 70 Q 50 48 70 30 Q 50 44 30 30 Z\" fill=\"#52B043\"/>\n        </g>"}, {"id": "ps3", "name": "PlayStation 3 (PS3)", "fullName": "Sony PlayStation 3", "year": 2006, "company": "Sony", "brandColor": "#E21836", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M16 32 h18 c8 0 14 5 14 12 c0 7 -6 12 -14 12 h-8 v14 h-10 z m10 8 v8 h8 c3 0 5 -1 5 -4 c0 -3 -2 -4 -5 -4 z\"/>\n            <path d=\"M50 56 c2 4 6 6 11 6 c5 0 8 -2 8 -5 c0 -3 -3 -5 -9 -6 c-10 -2 -14 -6 -14 -12 c0 -7 6 -11 14 -11 c7 0 12 3 14 7 l-7 4 c-1 -3 -4 -4 -7 -4 c-3 0 -5 1 -5 3 c0 3 3 4 8 5 c11 2 15 6 15 13 c0 7 -6 12 -16 12 c-8 0 -14 -4 -17 -9 z\"/>\n            <path d=\"M78 32 h16 v6 h-9 v6 h8 v5 h-8 v7 h10 v6 h-17 z\"/>\n            <path d=\"M14 76 Q 50 84 86 76\" fill=\"none\" stroke=\"#E21836\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n        </g>"}, {"id": "wii", "name": "Nintendo Wii", "fullName": "Nintendo Wii", "year": 2006, "company": "Nintendo", "brandColor": "#00B0FF", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M16 42 l6 28 c1 3 3 5 6 5 c3 0 5 -2 6 -5 l6 -20 l6 20 c1 3 3 5 6 5 c3 0 5 -2 6 -5 l6 -28 h-7 l-4 21 l-6 -21 h-4 l-6 21 l-4 -21 z\"/>\n            <rect x=\"58\" y=\"44\" width=\"7\" height=\"28\" rx=\"3.5\"/>\n            <circle cx=\"61.5\" cy=\"32\" r=\"4.5\" fill=\"#00B0FF\"/>\n            <rect x=\"72\" y=\"44\" width=\"7\" height=\"28\" rx=\"3.5\"/>\n            <circle cx=\"75.5\" cy=\"32\" r=\"4.5\" fill=\"#00B0FF\"/>\n        </g>"}, {"id": "ps4", "name": "PlayStation 4 (PS4)", "fullName": "Sony PlayStation 4", "year": 2013, "company": "Sony", "brandColor": "#003791", "viewBox": "0 0 100 100", "svg": "<g fill=\"#003791\">\n            <path d=\"M14 26 h18 c9 0 15 5 15 13 c0 8 -6 13 -15 13 h-7 v18 h-11 z m11 9 v8 h7 c3 0 5 -1 5 -4 c0 -3 -2 -4 -5 -4 z\"/>\n            <path d=\"M48 54 c2 4 6 7 12 7 c5 0 8 -2 8 -5 c0 -3 -3 -5 -9 -6 c-11 -2 -16 -6 -16 -13 c0 -8 7 -13 16 -13 c8 0 14 3 16 8 l-8 5 c-2 -3 -5 -4 -8 -4 c-3 0 -5 1 -5 3 c0 3 3 4 9 5 c12 3 16 7 16 14 c0 8 -7 13 -17 13 c-9 0 -16 -4 -19 -10 z\"/>\n            <path d=\"M86 26 v26 h6 v9 h-6 v9 h-10 v-9 h-12 l-2 -9 l14 -26 z m-10 12 l-7 14 h7 z\"/>\n        </g>"}, {"id": "switch", "name": "Nintendo Switch", "fullName": "Nintendo Switch", "year": 2017, "company": "Nintendo", "brandColor": "#E60012", "viewBox": "0 0 100 100", "svg": "<g fill=\"#E60012\">\n            <path d=\"M18 20 h18 c8 0 12 5 12 12 v36 c0 7 -4 12 -12 12 h-18 c-10 0 -14 -6 -14 -16 v-28 c0 -10 4 -16 14 -16 z m16 16 a 6 6 0 1 0 0.01 0 z\" fill-rule=\"evenodd\"/>\n            <path d=\"M64 20 h18 c10 0 14 6 14 16 v28 c0 10 -4 16 -14 16 h-18 c-8 0 -12 -5 -12 -12 v-36 c0 -7 4 -12 12 -12 z m1 8 v44 c0 3 2 4 5 4 h12 c5 0 7 -3 7 -8 v-28 c0 -5 -2 -8 -7 -8 h-12 c-3 0 -5 1 -5 4 z\" fill-rule=\"evenodd\"/>\n            <circle cx=\"75\" cy=\"56\" r=\"6\" fill=\"#E60012\"/>\n        </g>"}, {"id": "ps5", "name": "PlayStation 5 (PS5)", "fullName": "Sony PlayStation 5", "year": 2020, "company": "Sony", "brandColor": "#00439C", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M14 26 h16 c9 0 14 5 14 13 c0 8 -5 13 -14 13 h-6 v18 h-10 z m10 9 v8 h6 c3 0 5 -1 5 -4 c0 -3 -2 -4 -5 -4 z\"/>\n            <path d=\"M46 54 c2 4 6 7 12 7 c5 0 8 -2 8 -5 c0 -3 -3 -5 -9 -6 c-11 -2 -16 -6 -16 -13 c0 -8 7 -13 16 -13 c8 0 14 3 16 8 l-8 5 c-2 -3 -5 -4 -8 -4 c-3 0 -5 1 -5 3 c0 3 3 4 9 5 c12 3 16 7 16 14 c0 8 -7 13 -17 13 c-9 0 -16 -4 -19 -10 z\"/>\n            <path d=\"M74 26 h18 v8 h-11 v8 c2 -1 5 -1 8 -1 c8 0 13 5 13 12 c0 8 -6 14 -16 14 c-8 0 -14 -4 -16 -9 l8 -5 c1 3 4 5 8 5 c4 0 7 -2 7 -5 c0 -3 -3 -5 -7 -5 c-4 0 -7 1 -9 3 z\" fill=\"#0072CE\"/>\n        </g>"}, {"id": "switch2", "name": "Nintendo Switch 2", "fullName": "Nintendo Switch 2", "year": 2025, "company": "Nintendo", "brandColor": "#FF2A3A", "viewBox": "0 0 100 100", "svg": "<g>\n            <path d=\"M12 22 h14 c6 0 10 4 10 10 v36 c0 6 -4 10 -10 10 h-14 c-8 0 -10 -4 -10 -12 v-32 c0 -8 2 -12 10 -12 z m12 12 a 4.5 4.5 0 1 0 0.01 0 z\" fill=\"#FF2A3A\"/>\n            <line x1=\"39\" y1=\"36\" x2=\"39\" y2=\"64\" stroke=\"#FF2A3A\" stroke-width=\"2.5\" stroke-dasharray=\"2 3\"/>\n            <path d=\"M46 22 h14 c8 0 10 4 10 12 v32 c0 8 -2 12 -10 12 h-14 c-6 0 -10 -4 -10 -10 v-36 c0 -6 4 -10 10 -10 z m1 7 v42 c0 2 2 3 4 3 h9 c4 0 5 -2 5 -6 v-26 c0 -4 -1 -6 -5 -6 h-9 c-2 0 -4 1 -4 3 z\" fill=\"#FF2A3A\"/>\n            <circle cx=\"56\" cy=\"56\" r=\"4.5\" fill=\"#FF2A3A\"/>\n            <path d=\"M78 40 h14 v6 h-8 v5 h6 c5 0 8 3 8 7 c0 6 -4 9 -12 9 c-6 0 -10 -3 -12 -7 l6 -3 c1 2 3 3 6 3 c3 0 4 -1 4 -3 c0 -2 -1 -3 -4 -3 h-6 v-14 z\" fill=\"#00D2FF\"/>\n        </g>"}];
+
+    let isLight = document.documentElement.classList.contains('theme-light');
+
+    const state = {
+      mode: 'constellation',
+      colorTheme: 'brand',
+      speed: 1.0,
+      opacity: isLight ? 0.35 : 0.40,
+      density: 28,
+      baseSize: 48,
+      activeConsoles: new Set(CONSOLES.map(c => c.id)),
+      mouseX: null,
+      mouseY: null,
+      hudOpen: true
+    };
+
+    const logoCache = new Map();
+
+    function prerenderLogos() {
+      logoCache.clear();
+      isLight = document.documentElement.classList.contains('theme-light');
+      const monoColor = isLight ? '#18181b' : '#ededf0';
+      const cyberColor = isLight ? '#0070f3' : '#00ffcc';
+
+      CONSOLES.forEach(c => {
+        // Brand color
+        const imgBrand = new Image();
+        const svgBrandString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${c.viewBox}" width="128" height="128">${c.svg}</svg>`;
+        imgBrand.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgBrandString);
+        
+        // Monochrome Neutral
+        const imgMono = new Image();
+        const monoSvg = c.svg.replace(/#[A-Fa-f0-9]{6}/g, monoColor);
+        const svgMonoString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${c.viewBox}" width="128" height="128" fill="${monoColor}" stroke="${monoColor}">${monoSvg}</svg>`;
+        imgMono.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgMonoString);
+
+        // Cyber / Neon
+        const imgCyber = new Image();
+        const cyberSvg = c.svg.replace(/#[A-Fa-f0-9]{6}/g, cyberColor);
+        const svgCyberString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${c.viewBox}" width="128" height="128" fill="${cyberColor}" stroke="${cyberColor}">${cyberSvg}</svg>`;
+        imgCyber.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgCyberString);
+
+        logoCache.set(c.id, {
+          brand: imgBrand,
+          monochrome: imgMono,
+          cyber: imgCyber
+        });
+      });
+    }
+
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initParticles();
+    });
+
+    class Particle {
+      constructor(idx) {
+        this.reset(idx);
+      }
+
+      reset(idx) {
+        const activeList = CONSOLES.filter(c => state.activeConsoles.has(c.id));
+        if (activeList.length === 0) {
+          this.console = CONSOLES[Math.floor(Math.random() * CONSOLES.length)];
+        } else {
+          this.console = activeList[idx % activeList.length];
+        }
+
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.z = Math.random() * 1000 + 100;
+        
+        const angle = Math.random() * Math.PI * 2;
+        const vel = (0.3 + Math.random() * 0.7);
+        this.vx = Math.cos(angle) * vel;
+        this.vy = Math.sin(angle) * vel;
+
+        this.flowSpeed = 0.5 + (this.console.year - 1980) * 0.03;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.015;
+        this.scale = 0.8 + Math.random() * 0.4;
+        this.pulse = Math.random() * Math.PI;
+      }
+
+      update() {
+        const s = state.speed;
+
+        if (state.mode === 'constellation') {
+          this.x += this.vx * s;
+          this.y += this.vy * s;
+          this.rotation += this.rotSpeed * s;
+
+          if (this.x < -60) this.x = width + 60;
+          if (this.x > width + 60) this.x = -60;
+          if (this.y < -60) this.y = height + 60;
+          if (this.y > height + 60) this.y = -60;
+
+          if (state.mouseX !== null && state.mouseY !== null) {
+            const dx = this.x - state.mouseX;
+            const dy = this.y - state.mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 180 && dist > 0) {
+              const force = (180 - dist) / 180 * 1.5;
+              this.x += (dx / dist) * force;
+              this.y += (dy / dist) * force;
+            }
+          }
+        } 
+        else if (state.mode === 'timeline') {
+          this.x += (this.vx * 0.3 + this.flowSpeed) * s;
+          this.y += (this.flowSpeed * 0.7) * s;
+          this.rotation += this.rotSpeed * 0.5 * s;
+
+          if (this.y > height + 60 || this.x > width + 60) {
+            this.y = -60;
+            this.x = Math.random() * width * 1.2 - width * 0.2;
+          }
+        } 
+        else if (state.mode === 'screensaver') {
+          this.x += this.vx * 1.8 * s;
+          this.y += this.vy * 1.8 * s;
+
+          if (this.x <= 30 || this.x >= width - 30) {
+            this.vx *= -1;
+            this.rotation += 0.2;
+          }
+          if (this.y <= 30 || this.y >= height - 30) {
+            this.vy *= -1;
+            this.rotation += 0.2;
+          }
+        }
+        else if (state.mode === 'warp') {
+          this.z -= 4 * s;
+          if (this.z <= 10) {
+            this.z = 1000;
+            this.x = (Math.random() - 0.5) * width;
+            this.y = (Math.random() - 0.5) * height;
+          }
+        }
+
+        this.pulse += 0.02 * s;
+      }
+
+      draw() {
+        const cached = logoCache.get(this.console.id);
+        if (!cached) return;
+        const img = cached[state.colorTheme] || cached.brand;
+        if (!img.complete) return;
+
+        ctx.save();
+
+        if (state.mode === 'warp') {
+          const cx = width / 2;
+          const cy = height / 2;
+          const k = 400 / this.z;
+          const px = cx + this.x * k;
+          const py = cy + this.y * k;
+          const pSize = Math.max(10, state.baseSize * k * 1.2);
+          const pAlpha = Math.min(1, Math.max(0, (1 - this.z / 1000))) * state.opacity;
+
+          ctx.globalAlpha = pAlpha;
+          ctx.translate(px, py);
+          ctx.drawImage(img, -pSize / 2, -pSize / 2, pSize, pSize);
+          ctx.restore();
+          return;
+        }
+
+        const size = state.baseSize * this.scale;
+        const alpha = state.opacity * (0.8 + Math.sin(this.pulse) * 0.2);
+
+        ctx.globalAlpha = Math.max(0.02, Math.min(1.0, alpha));
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+
+        if (state.colorTheme === 'cyber') {
+          ctx.shadowColor = isLight ? '#0070f3' : '#00ffcc';
+          ctx.shadowBlur = 12;
+        }
+
+        ctx.drawImage(img, -size / 2, -size / 2, size, size);
+        ctx.restore();
+      }
+    }
+
+    let particles = [];
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < state.density; i++) {
+        particles.push(new Particle(i));
+      }
+    }
+
+    function drawConnections() {
+      if (state.mode !== 'constellation') return;
+      ctx.lineWidth = 0.75;
+      const maxDist = 130;
+      isLight = document.documentElement.classList.contains('theme-light');
+      const rgb = isLight ? '24, 24, 27' : '255, 255, 255';
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxDist) {
+            const alpha = (1 - dist / maxDist) * 0.15 * state.opacity;
+            ctx.strokeStyle = `rgba(${rgb}, ${alpha})`;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      if (state.mode === 'warp') {
+        ctx.fillStyle = isLight ? 'rgba(244, 244, 247, 0.3)' : 'rgba(13, 13, 16, 0.3)';
+        ctx.fillRect(0, 0, width, height);
+      }
+
+      drawConnections();
+
+      for (const p of particles) {
+        p.update();
+        p.draw();
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    function toggleTheme() {
+      isLight = document.documentElement.classList.toggle('theme-light');
+      const label = document.getElementById('themeLabel');
+      const icon = document.getElementById('themeIcon');
+      if (label) label.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+      if (icon) {
+        icon.innerHTML = isLight 
+          ? '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+          : '<svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+      }
+      prerenderLogos();
+      updateButtonStyles();
+    }
+
+    function updateButtonStyles() {
+      document.querySelectorAll('.mode-btn').forEach(b => {
+        b.style.backgroundColor = 'var(--card-bg)';
+        b.style.borderColor = 'var(--hud-border)';
+      });
+      const map = {
+        constellation: 'btnModeConstellation',
+        timeline: 'btnModeTimeline',
+        screensaver: 'btnModeScreensaver',
+        warp: 'btnModeWarp'
+      };
+      const activeBtn = document.getElementById(map[state.mode]);
+      if (activeBtn) {
+        activeBtn.style.backgroundColor = 'var(--btn-active-bg)';
+        activeBtn.style.color = 'var(--btn-active-text)';
+      }
+    }
+
+    function populateConsolesList() {
+      const container = document.getElementById('consolesList');
+      container.innerHTML = CONSOLES.map(c => `
+        <label class="flex items-center gap-2 p-1.5 rounded-lg bg-[var(--card-bg)] border border-[var(--hud-border)] hover:opacity-100 opacity-90 transition cursor-pointer select-none">
+          <input type="checkbox" value="${c.id}" checked class="console-checkbox accent-current w-3.5 h-3.5 rounded" onchange="toggleConsole('${c.id}', this.checked)">
+          <div class="min-w-0">
+            <span class="text-[11px] font-medium truncate block leading-tight">${c.name}</span>
+            <span class="text-[9px] font-mono opacity-60">${c.year} &bull; ${c.company}</span>
+          </div>
+        </label>
+      `).join('');
+    }
+
+    function toggleConsole(id, isChecked) {
+      if (isChecked) state.activeConsoles.add(id);
+      else state.activeConsoles.delete(id);
+      initParticles();
+    }
+
+    function toggleAllConsoles(selectAll) {
+      const checkboxes = document.querySelectorAll('.console-checkbox');
+      checkboxes.forEach(cb => {
+        cb.checked = selectAll;
+        if (selectAll) state.activeConsoles.add(cb.value);
+        else state.activeConsoles.delete(cb.value);
+      });
+      initParticles();
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      updateButtonStyles();
+    }
+
+    function setColorTheme(theme) {
+      state.colorTheme = theme;
+      document.querySelectorAll('.theme-btn').forEach(b => {
+        b.style.backgroundColor = 'var(--card-bg)';
+      });
+      const map = { brand: 'themeBrand', monochrome: 'themeMono', cyber: 'themeCyber' };
+      const activeBtn = document.getElementById(map[theme]);
+      if (activeBtn) {
+        activeBtn.style.backgroundColor = 'var(--btn-active-bg)';
+        activeBtn.style.color = 'var(--btn-active-text)';
+      }
+    }
+
+    function updateSpeed(val) {
+      state.speed = parseFloat(val);
+      document.getElementById('valSpeed').textContent = state.speed.toFixed(1) + 'x';
+    }
+
+    function updateOpacity(val) {
+      state.opacity = parseFloat(val);
+      document.getElementById('valOpacity').textContent = Math.round(state.opacity * 100) + '%';
+    }
+
+    function updateDensity(val) {
+      state.density = parseInt(val);
+      document.getElementById('valDensity').textContent = state.density + ' particles';
+      initParticles();
+    }
+
+    function updateSize(val) {
+      state.baseSize = parseInt(val);
+      document.getElementById('valSize').textContent = state.baseSize + 'px';
+    }
+
+    function resetDefaults() {
+      setMode('constellation');
+      setColorTheme('brand');
+      updateSpeed(1.0);
+      updateOpacity(isLight ? 0.35 : 0.40);
+      updateDensity(28);
+      updateSize(48);
+      document.getElementById('sliderSpeed').value = 1.0;
+      document.getElementById('sliderOpacity').value = isLight ? 0.35 : 0.40;
+      document.getElementById('sliderDensity').value = 28;
+      document.getElementById('sliderSize').value = 48;
+      toggleAllConsoles(true);
+    }
+
+    function toggleHud() {
+      const hud = document.getElementById('controlHud');
+      state.hudOpen = !state.hudOpen;
+      hud.style.transform = state.hudOpen ? 'translateY(0)' : 'translateY(120%)';
+      document.getElementById('hudToggleLabel').textContent = state.hudOpen ? 'Hide' : 'Customize';
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      state.mouseX = e.clientX;
+      state.mouseY = e.clientY;
+      const aura = document.getElementById('mouseAura');
+      aura.style.left = e.clientX + 'px';
+      aura.style.top = e.clientY + 'px';
+      aura.style.opacity = '0.7';
+    });
+
+    window.addEventListener('mouseleave', () => {
+      state.mouseX = null;
+      state.mouseY = null;
+      document.getElementById('mouseAura').style.opacity = '0';
+    });
+
+    function openExportModal() {
+      const code = `<!-- Drop-in Dual-Theme Console Background -->
+<canvas id="consoleCanvas" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:${state.opacity};"></canvas>
+<!-- Embed logic automatically syncs with your site theme (theme-light vs dark) -->`;
+      document.getElementById('exportCodeArea').value = code;
+      document.getElementById('exportModal').classList.remove('hidden');
+    }
+
+    function closeExportModal() {
+      document.getElementById('exportModal').classList.add('hidden');
+    }
+
+    function copyExportCode() {
+      const area = document.getElementById('exportCodeArea');
+      area.select();
+      navigator.clipboard.writeText(area.value);
+      const msg = document.getElementById('copySuccessMsg');
+      msg.style.opacity = '1';
+      setTimeout(() => { msg.style.opacity = '0'; }, 2000);
+    }
+
+    // Init
+    prerenderLogos();
+    populateConsolesList();
+    initParticles();
+    updateButtonStyles();
+    setColorTheme('brand');
+    animate();
+  </script>
+</body>
+</html>
