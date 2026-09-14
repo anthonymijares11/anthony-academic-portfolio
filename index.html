@@ -213,7 +213,7 @@
           ITC-C506 (Archive)
         </button>
         <button onclick="switchTab('emc')" id="pillEmc" class="px-3.5 py-1.5 rounded-md opacity-70 hover:opacity-100 transition">
-          EMC C102 (HCI)
+          EMC C102 (Archive)
         </button>
       </div>
     </div>
@@ -221,18 +221,7 @@
     <!-- VIEW 1: ITC-C508 -->
     <div id="viewITC508" class="space-y-6">
 
-      <div class="p-6 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-2 transition-all duration-200">
-        <div class="flex items-center justify-between text-sm text-[var(--text-card-muted)] font-medium">
-          <span>Current Course</span>
-          <span class="px-2 py-0.5 rounded bg-[var(--bg-well)] text-[var(--text-card-title)] border border-[var(--border-well)]">ITC-C508-204I</span>
-        </div>
-        <h3 class="text-lg font-bold text-[var(--text-card-title)]">
-          ITC-C508: IT Elective 4
-        </h3>
-        <p class="text-xs sm:text-sm text-[var(--text-card-body)] leading-relaxed">
-          Advanced Machine Learning and Deep Learning architectures. Developing foundational predictive systems, real-time Natural Language Processing models, and personal academic reflections at Jose Rizal University.
-        </p>
-      </div>
+      
 
       <div class="space-y-5">
         <article class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-3.5 transition-all duration-200">
@@ -348,18 +337,7 @@
     <!-- VIEW 2: ITC-C506 -->
     <div id="viewITC506" class="hidden space-y-6">
 
-      <div class="p-6 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-2 transition-all duration-200">
-        <div class="flex items-center justify-between text-sm text-[var(--text-card-muted)] font-medium">
-          <span>Completed Course Archive</span>
-          <span>ITC-C506: IT Elective 3</span>
-        </div>
-        <h3 class="text-lg font-bold text-[var(--text-card-title)]">
-          ITC-C506: IT Elective 3
-        </h3>
-        <p class="text-xs sm:text-sm text-[var(--text-card-body)] leading-relaxed">
-          Academic coursework, examinations, and predictive analytics models completed for ITC-C506: IT Elective 3 at Jose Rizal University.
-        </p>
-      </div>
+      
 
       <!-- Filter Controls -->
       <div class="flex flex-wrap items-center justify-between gap-3">
@@ -1337,18 +1315,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
 
     <!-- VIEW 3: EMC C102 -->
     <div id="viewEMC" class="hidden space-y-6">
-      <div class="p-6 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-2 transition-all duration-200">
-        <div class="flex items-center justify-between text-sm text-[var(--text-card-muted)] font-medium">
-          <span>Completed Coursework</span>
-          <span class="px-2 py-0.5 rounded bg-[var(--bg-well)] text-[var(--text-card-title)] border border-[var(--border-well)]">EMC C102</span>
-        </div>
-        <h3 class="text-lg font-bold text-[var(--text-card-title)]">
-          EMC C102: Human-Computer Interaction (HCI)
-        </h3>
-        <p class="text-xs sm:text-sm text-[var(--text-card-body)] leading-relaxed">
-          Coursework, user research methodologies, and interactive design prototypes completed for EMC C102 at Jose Rizal University.
-        </p>
-      </div>
+      
 
       <div class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-5 transition-all duration-200">
         <div class="border-b border-[var(--border-well)] pb-3">
@@ -1521,7 +1488,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         title.textContent = 'ITC-C506: IT Elective 3 (Archive)';
       } else if (course === 'emc') {
         vEmc.classList.remove('hidden');
-        title.textContent = 'EMC C102: Human-Computer Interaction';
+        title.textContent = 'EMC C102: Human-Computer Interaction (Archive)';
       }
 
       updateNavStyles();
