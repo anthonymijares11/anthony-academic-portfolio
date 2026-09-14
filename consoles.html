@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <title>Gaming Console Animated Background &mdash; Dark Edition (1983-2025)</title>
         <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -13,8 +13,8 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['Roboto', 'sans-serif'],
+            mono: ['Roboto Mono', 'monospace'],
           }
         }
       }
@@ -63,7 +63,7 @@
     <div class="flex items-center gap-3 pointer-events-auto bg-[var(--hud-bg)] backdrop-blur-md px-4 py-2.5 rounded-xl border border-[var(--hud-border)] shadow-xl">
       <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
       <span class="text-xs font-bold tracking-wide">17 Console Mastercraft Emblems</span>
-      <span class="text-[10px] font-serif px-2 py-0.5 rounded-md bg-[var(--card-bg)] border border-[var(--hud-border)] opacity-80">1983-2025</span>
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[var(--card-bg)] border border-[var(--hud-border)] opacity-80">1983-2025</span>
     </div>
 
     <!-- Quick Action Controls -->
@@ -103,7 +103,7 @@
       <div class="flex items-center gap-2">
         <span class="text-xs font-bold uppercase tracking-wider">Console Vector Studio</span>
       </div>
-      <button onclick="resetDefaults()" class="text-[11px] font-serif opacity-70 hover:opacity-100 transition cursor-pointer">Reset</button>
+      <button onclick="resetDefaults()" class="text-[11px] font-mono opacity-70 hover:opacity-100 transition cursor-pointer">Reset</button>
     </div>
 
     <!-- Body -->
@@ -154,7 +154,7 @@
         <div class="space-y-1">
           <div class="flex items-center justify-between text-[11px]">
             <span class="opacity-80 font-medium">Motion Speed</span>
-            <span id="valSpeed" class="font-serif opacity-70">1.0x</span>
+            <span id="valSpeed" class="font-mono opacity-70">1.0x</span>
           </div>
           <input type="range" id="sliderSpeed" min="0.1" max="2.5" step="0.1" value="1.0" class="w-full accent-current cursor-pointer" oninput="updateSpeed(this.value)">
         </div>
@@ -163,7 +163,7 @@
         <div class="space-y-1">
           <div class="flex items-center justify-between text-[11px]">
             <span class="opacity-80 font-medium">Logo Opacity</span>
-            <span id="valOpacity" class="font-serif opacity-70">65%</span>
+            <span id="valOpacity" class="font-mono opacity-70">65%</span>
           </div>
           <input type="range" id="sliderOpacity" min="0.15" max="1.0" step="0.05" value="0.65" class="w-full accent-current cursor-pointer" oninput="updateOpacity(this.value)">
         </div>
@@ -172,7 +172,7 @@
         <div class="space-y-1">
           <div class="flex items-center justify-between text-[11px]">
             <span class="opacity-80 font-medium">Logo Density</span>
-            <span id="valDensity" class="font-serif opacity-70">34 particles</span>
+            <span id="valDensity" class="font-mono opacity-70">34 particles</span>
           </div>
           <input type="range" id="sliderDensity" min="17" max="68" step="1" value="34" class="w-full accent-current cursor-pointer" oninput="updateDensity(this.value)">
         </div>
@@ -181,7 +181,7 @@
         <div class="space-y-1">
           <div class="flex items-center justify-between text-[11px]">
             <span class="opacity-80 font-medium">Base Logo Size</span>
-            <span id="valSize" class="font-serif opacity-70">58px</span>
+            <span id="valSize" class="font-mono opacity-70">58px</span>
           </div>
           <input type="range" id="sliderSize" min="36" max="96" step="2" value="58" class="w-full accent-current cursor-pointer" oninput="updateSize(this.value)">
         </div>
@@ -220,7 +220,7 @@
       </div>
 
       <div class="relative flex-1 min-h-[300px] overflow-hidden rounded-xl border border-[var(--hud-border)] bg-[var(--bg-canvas)] p-3">
-        <textarea id="exportCodeArea" readonly class="w-full h-full bg-transparent font-serif text-[11px] leading-relaxed text-emerald-500 resize-none outline-none overflow-y-auto p-1"></textarea>
+        <textarea id="exportCodeArea" readonly class="w-full h-full bg-transparent font-mono text-[11px] leading-relaxed text-emerald-500 resize-none outline-none overflow-y-auto p-1"></textarea>
       </div>
 
       <div class="flex items-center justify-between pt-2 shrink-0">
@@ -527,7 +527,7 @@
           </div>
           <div class="min-w-0 flex-1">
             <span class="text-[11px] font-semibold truncate block leading-tight">${c.name}</span>
-            <span class="text-[9px] font-serif opacity-60 block leading-tight">${c.year} &bull; ${c.company}</span>
+            <span class="text-[9px] font-mono opacity-60 block leading-tight">${c.year} &bull; ${c.company}</span>
           </div>
         </label>
       `).join('');
