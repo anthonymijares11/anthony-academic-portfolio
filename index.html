@@ -488,32 +488,29 @@
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: An Analysis of Hyperparameter Optimization in a Supervised Machine Learning Algorithm: K-Nearest Neighbors utilizing the Iris Dataset</span>
+            <!-- Document Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Research Paper: An Analysis of Hyperparameter Optimization in a Supervised Machine Learning Algorithm: K-Nearest Neighbors utilizing the Iris Dataset
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/docs/prelim_ex1_knn_paper.pdf', 'An Analysis of Hyperparameter Optimization in a Supervised Machine Learning Algorithm: K-Nearest Neighbors utilizing the Iris Dataset', 'pdf')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Document</span>
+                </button>
+                <a href="assets/docs/prelim_ex1_knn_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Download PDF</span>
+                </a>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_ex1_knn_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/prelim_ex1_knn_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/prelim_ex1_knn_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="An Analysis of Hyperparameter Optimization in a Supervised Machine Learning Algorithm: K-Nearest Neighbors utilizing the Iris Dataset"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -548,26 +545,29 @@
           </div>
         </details>
       
-        <!-- Embedded Code Notebook -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: PT_P2_Mijares_Anthony: kNN Model Implementation</span>
+            <!-- Code Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Code: PT_P2_Mijares_Anthony: kNN Model Implementation
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/notebooks/prelim_ex1_knn_code.html', 'PT_P2_Mijares_Anthony: kNN Model Implementation', 'code')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Notebook</span>
+                </button>
+                <a href="assets/notebooks/prelim_ex1_knn_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                  <span>Open in Tab</span>
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
               </div>
             </div>
-            <a href="assets/notebooks/prelim_ex1_knn_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              <span>Open Notebook</span>
-              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
-            <iframe src="assets/notebooks/prelim_ex1_knn_code.html" class="w-full h-full border-0" loading="lazy" title="PT_P2_Mijares_Anthony: kNN Model Implementation"></iframe>
-          </div>
-        </div>
     </article>
     
 
@@ -577,32 +577,29 @@
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: Impact of Feature Scaling and Imputation on k-Nearest Neighbor Performance in Retail Analytics</span>
+            <!-- Document Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Research Paper: Impact of Feature Scaling and Imputation on k-Nearest Neighbor Performance in Retail Analytics
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/docs/prelim_ex2_cleaning_paper.pdf', 'Impact of Feature Scaling and Imputation on k-Nearest Neighbor Performance in Retail Analytics', 'pdf')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Document</span>
+                </button>
+                <a href="assets/docs/prelim_ex2_cleaning_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Download PDF</span>
+                </a>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_ex2_cleaning_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/prelim_ex2_cleaning_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/prelim_ex2_cleaning_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Impact of Feature Scaling and Imputation on k-Nearest Neighbor Performance in Retail Analytics"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -637,26 +634,29 @@
           </div>
         </details>
       
-        <!-- Embedded Code Notebook -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: Mijares WW2-datacleaning: Data Cleaning and Normalization Pipeline</span>
+            <!-- Code Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Code: Mijares WW2-datacleaning: Data Cleaning and Normalization Pipeline
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/notebooks/prelim_ex2_cleaning_code.html', 'Mijares WW2-datacleaning: Data Cleaning and Normalization Pipeline', 'code')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Notebook</span>
+                </button>
+                <a href="assets/notebooks/prelim_ex2_cleaning_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                  <span>Open in Tab</span>
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
               </div>
             </div>
-            <a href="assets/notebooks/prelim_ex2_cleaning_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              <span>Open Notebook</span>
-              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
-            <iframe src="assets/notebooks/prelim_ex2_cleaning_code.html" class="w-full h-full border-0" loading="lazy" title="Mijares WW2-datacleaning: Data Cleaning and Normalization Pipeline"></iframe>
-          </div>
-        </div>
     </article>
     
 
@@ -666,32 +666,29 @@
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: Predictive Analytics in Customer Service: A Linear Regression Approach to Call Center Performance</span>
+            <!-- Document Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Research Paper: Predictive Analytics in Customer Service: A Linear Regression Approach to Call Center Performance
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/docs/prelim_ex3_regression_paper.pdf', 'Predictive Analytics in Customer Service: A Linear Regression Approach to Call Center Performance', 'pdf')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Document</span>
+                </button>
+                <a href="assets/docs/prelim_ex3_regression_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Download PDF</span>
+                </a>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_ex3_regression_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/prelim_ex3_regression_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/prelim_ex3_regression_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Predictive Analytics in Customer Service: A Linear Regression Approach to Call Center Performance"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -726,26 +723,29 @@
           </div>
         </details>
       
-        <!-- Embedded Code Notebook -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: Mijares_PT_P3_Simple_and_Multiple_Linear_Regression</span>
+            <!-- Code Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Code: Mijares_PT_P3_Simple_and_Multiple_Linear_Regression
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/notebooks/prelim_ex3_regression_code.html', 'Mijares_PT_P3_Simple_and_Multiple_Linear_Regression', 'code')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Notebook</span>
+                </button>
+                <a href="assets/notebooks/prelim_ex3_regression_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                  <span>Open in Tab</span>
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
               </div>
             </div>
-            <a href="assets/notebooks/prelim_ex3_regression_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              <span>Open Notebook</span>
-              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
-            <iframe src="assets/notebooks/prelim_ex3_regression_code.html" class="w-full h-full border-0" loading="lazy" title="Mijares_PT_P3_Simple_and_Multiple_Linear_Regression"></iframe>
-          </div>
-        </div>
     </article>
     
 
@@ -755,32 +755,29 @@
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Assessment: Prelim Long Quiz</span>
+            <!-- Document Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Assessment: Prelim Long Quiz
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/docs/prelim_long_quiz.pdf', 'Prelim Long Quiz', 'pdf')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Document</span>
+                </button>
+                <a href="assets/docs/prelim_long_quiz.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Download PDF</span>
+                </a>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_long_quiz.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/prelim_long_quiz.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/prelim_long_quiz.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Prelim Long Quiz"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -824,32 +821,29 @@
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Examination: Prelim Examination</span>
+            <!-- Document Asset Strip (Modal Trigger) -->
+            <div class="my-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+              <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+                <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </span>
+                <div class="min-w-0">
+                  <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                    Examination: Prelim Examination
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button onclick="openAssetModal('assets/docs/prelim_exam.pdf', 'Prelim Examination', 'pdf')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                  <span>Preview Document</span>
+                </button>
+                <a href="assets/docs/prelim_exam.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  <span>Download PDF</span>
+                </a>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/prelim_exam.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/prelim_exam.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/prelim_exam.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Prelim Examination"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -898,32 +892,32 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: A Logistic Regression Approach in Predicting Employee Attrition for a Data-Driven Support System in Human Resources</span>
+            <!-- Embedded Document -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: A Logistic Regression Approach in Predicting Employee Attrition for a Data-Driven Support System in Human Resources</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <a href="assets/docs/midterm_ex1_logistic_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                    <span>Fullscreen</span>
+                  </a>
+                  <a href="assets/docs/midterm_ex1_logistic_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download PDF</span>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
+                <iframe src="assets/docs/midterm_ex1_logistic_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="A Logistic Regression Approach in Predicting Employee Attrition for a Data-Driven Support System in Human Resources"></iframe>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/midterm_ex1_logistic_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/midterm_ex1_logistic_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/midterm_ex1_logistic_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="A Logistic Regression Approach in Predicting Employee Attrition for a Data-Driven Support System in Human Resources"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -958,26 +952,26 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
           </div>
         </details>
       
-        <!-- Embedded Code Notebook -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: PTM Exercise 1: Logistic Regression Notebook</span>
+            <!-- Embedded Code Notebook -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: PTM Exercise 1: Logistic Regression Notebook</span>
+                  </div>
+                </div>
+                <a href="assets/notebooks/midterm_ex1_logistic_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                  <span>Open Notebook</span>
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
+                <iframe src="assets/notebooks/midterm_ex1_logistic_code.html" class="w-full h-full border-0" loading="lazy" title="PTM Exercise 1: Logistic Regression Notebook"></iframe>
               </div>
             </div>
-            <a href="assets/notebooks/midterm_ex1_logistic_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              <span>Open Notebook</span>
-              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
-            <iframe src="assets/notebooks/midterm_ex1_logistic_code.html" class="w-full h-full border-0" loading="lazy" title="PTM Exercise 1: Logistic Regression Notebook"></iframe>
-          </div>
-        </div>
     </article>
     
 
@@ -987,32 +981,32 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Assessment: Midterm Long Quiz</span>
+            <!-- Embedded Document -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Assessment: Midterm Long Quiz</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <a href="assets/docs/midterm_long_quiz.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                    <span>Fullscreen</span>
+                  </a>
+                  <a href="assets/docs/midterm_long_quiz.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download PDF</span>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
+                <iframe src="assets/docs/midterm_long_quiz.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Midterm Long Quiz"></iframe>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/midterm_long_quiz.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/midterm_long_quiz.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/midterm_long_quiz.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Midterm Long Quiz"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -1056,32 +1050,32 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Examination: Midterm Examination</span>
+            <!-- Embedded Document -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Examination: Midterm Examination</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <a href="assets/docs/midterm_exam.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                    <span>Fullscreen</span>
+                  </a>
+                  <a href="assets/docs/midterm_exam.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download PDF</span>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
+                <iframe src="assets/docs/midterm_exam.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Midterm Examination"></iframe>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/midterm_exam.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/midterm_exam.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/midterm_exam.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Midterm Examination"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -1129,32 +1123,32 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: Comparative Analysis of Multinomial Logistic Regression and Linear SVM in Wine Cultivar Classification</span>
+            <!-- Embedded Document -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: Comparative Analysis of Multinomial Logistic Regression and Linear SVM in Wine Cultivar Classification</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <a href="assets/docs/final_ex1_finetuning_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                    <span>Fullscreen</span>
+                  </a>
+                  <a href="assets/docs/final_ex1_finetuning_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download PDF</span>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
+                <iframe src="assets/docs/final_ex1_finetuning_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Comparative Analysis of Multinomial Logistic Regression and Linear SVM in Wine Cultivar Classification"></iframe>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/final_ex1_finetuning_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/final_ex1_finetuning_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/final_ex1_finetuning_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Comparative Analysis of Multinomial Logistic Regression and Linear SVM in Wine Cultivar Classification"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -1189,26 +1183,26 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
           </div>
         </details>
       
-        <!-- Embedded Code Notebook -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: Model Fine-Tuning Executable Notebook</span>
+            <!-- Embedded Code Notebook -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: Model Fine-Tuning Executable Notebook</span>
+                  </div>
+                </div>
+                <a href="assets/notebooks/final_ex1_finetuning_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                  <span>Open Notebook</span>
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
+                <iframe src="assets/notebooks/final_ex1_finetuning_code.html" class="w-full h-full border-0" loading="lazy" title="Model Fine-Tuning Executable Notebook"></iframe>
               </div>
             </div>
-            <a href="assets/notebooks/final_ex1_finetuning_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              <span>Open Notebook</span>
-              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
-            <iframe src="assets/notebooks/final_ex1_finetuning_code.html" class="w-full h-full border-0" loading="lazy" title="Model Fine-Tuning Executable Notebook"></iframe>
-          </div>
-        </div>
     </article>
     
 
@@ -1261,32 +1255,32 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       </h4>
 
       
-        <!-- Embedded Document -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security</span>
+            <!-- Embedded Document -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Research Paper: Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2">
+                  <a href="assets/docs/final_project_euphoria_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                    <span>Fullscreen</span>
+                  </a>
+                  <a href="assets/docs/final_project_euphoria_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span>Download PDF</span>
+                  </a>
+                </div>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
+                <iframe src="assets/docs/final_project_euphoria_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security"></iframe>
               </div>
             </div>
-            <div class="flex items-center gap-2">
-              <a href="assets/docs/final_project_euphoria_paper.pdf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
-                <span>Fullscreen</span>
-              </a>
-              <a href="assets/docs/final_project_euphoria_paper.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
-                <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                <span>Download PDF</span>
-              </a>
-            </div>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-well)]">
-            <iframe src="assets/docs/final_project_euphoria_paper.pdf#toolbar=1" class="w-full h-full border-0" loading="lazy" title="Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security"></iframe>
-          </div>
-        </div>
       
         <div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
@@ -1321,26 +1315,26 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
           </div>
         </details>
       
-        <!-- Embedded Code Notebook -->
-        <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
-          <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
-            <div class="flex items-center gap-2.5">
-              <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
-                <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              </span>
-              <div>
-                <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: Project EUPHORIA: SDG 6 Clean Water and Sanitation Machine Learning Pipeline</span>
+            <!-- Embedded Code Notebook -->
+            <div class="my-4 rounded-xl border border-[var(--border-well)] overflow-hidden bg-[var(--bg-well)]">
+              <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 bg-[var(--bg-card)] border-b border-[var(--border-well)]">
+                <div class="flex items-center gap-2.5">
+                  <span class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center">
+                    <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  </span>
+                  <div>
+                    <span class="text-xs sm:text-sm font-semibold text-[var(--text-card-title)] block leading-snug">Code: Project EUPHORIA: SDG 6 Clean Water and Sanitation Machine Learning Pipeline</span>
+                  </div>
+                </div>
+                <a href="assets/notebooks/final_project_euphoria_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+                  <span>Open Notebook</span>
+                  <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+              <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
+                <iframe src="assets/notebooks/final_project_euphoria_code.html" class="w-full h-full border-0" loading="lazy" title="Project EUPHORIA: SDG 6 Clean Water and Sanitation Machine Learning Pipeline"></iframe>
               </div>
             </div>
-            <a href="assets/notebooks/final_project_euphoria_code.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
-              <span>Open Notebook</span>
-              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-          <div class="w-full h-[520px] sm:h-[600px] bg-[var(--bg-card)]">
-            <iframe src="assets/notebooks/final_project_euphoria_code.html" class="w-full h-full border-0" loading="lazy" title="Project EUPHORIA: SDG 6 Clean Water and Sanitation Machine Learning Pipeline"></iframe>
-          </div>
-        </div>
     </article>
     
         </div>
@@ -1394,6 +1388,47 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     </div>
 
   </main>
+
+  <!-- Impeccable Asset Preview Modal -->
+  <div id="assetModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <!-- Backdrop -->
+    <div id="assetModalBackdrop" onclick="closeAssetModal()" class="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-200 cursor-pointer"></div>
+
+    <!-- Modal Container -->
+    <div class="relative w-full max-w-5xl h-[88vh] max-h-[920px] bg-[var(--bg-card)] rounded-2xl border border-[var(--border-card)] shadow-2xl flex flex-col overflow-hidden z-10">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between gap-3 px-4 sm:px-6 py-3.5 bg-[var(--bg-card)] border-b border-[var(--border-well)] shrink-0">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="modalHeaderIcon" class="p-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          </span>
+          <div class="min-w-0">
+            <h3 id="modalTitle" class="text-xs sm:text-sm font-bold text-[var(--text-card-title)] truncate">Document Preview</h3>
+            <span id="modalTypeBadge" class="text-[10px] font-mono text-[var(--text-card-muted)] block uppercase tracking-wider">PDF Document</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <a id="modalExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-well)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium">
+            <span>New Tab</span>
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+          <a id="modalDownloadLink" href="#" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-btn-primary)] text-[var(--text-btn-primary)] font-medium hover:opacity-90 transition shadow-xs">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download</span>
+          </a>
+          <button onclick="closeAssetModal()" class="p-1.5 rounded-lg text-[var(--text-card-muted)] hover:text-[var(--text-card-title)] hover:bg-[var(--bg-well)] border border-transparent hover:border-[var(--border-well)] transition cursor-pointer ml-1" aria-label="Close modal">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Iframe) -->
+      <div class="relative w-full flex-1 bg-[var(--bg-well)] min-h-0 overflow-hidden">
+        <iframe id="modalIframe" src="" class="w-full h-full border-0" title="Asset Preview" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
 
   <footer class="border-t border-[var(--border-header)] py-8 text-xs text-[var(--text-page)] opacity-70 text-center space-y-1 mt-8 font-mono">
     <div>Anthony Mijares &bull; Jose Rizal University &bull; BSIT Academic E-Portfolio</div>
@@ -1590,6 +1625,57 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         label.textContent = 'Expand All Details';
       }
     }
+
+    const ICON_FILE_TEXT_JS = `<svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>`;
+    const ICON_CODE_JS = `<svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`;
+
+    function openAssetModal(url, title, type) {
+      const modal = document.getElementById('assetModal');
+      const iframe = document.getElementById('modalIframe');
+      const titleEl = document.getElementById('modalTitle');
+      const typeBadge = document.getElementById('modalTypeBadge');
+      const iconEl = document.getElementById('modalHeaderIcon');
+      const extLink = document.getElementById('modalExternalLink');
+      const dlLink = document.getElementById('modalDownloadLink');
+
+      if (!modal || !iframe) return;
+
+      titleEl.textContent = title;
+      if (type === 'code') {
+        typeBadge.textContent = 'Executable Jupyter / HTML Notebook';
+        iconEl.innerHTML = ICON_CODE_JS;
+        dlLink.style.display = 'none';
+      } else {
+        typeBadge.textContent = 'Academic PDF Document';
+        iconEl.innerHTML = ICON_FILE_TEXT_JS;
+        dlLink.style.display = 'inline-flex';
+        dlLink.href = url;
+      }
+
+      extLink.href = url;
+      iframe.src = url;
+
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAssetModal() {
+      const modal = document.getElementById('assetModal');
+      const iframe = document.getElementById('modalIframe');
+      if (modal) {
+        modal.classList.add('hidden');
+      }
+      if (iframe) {
+        iframe.src = 'about:blank';
+      }
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAssetModal();
+      }
+    });
 
     // Initial styling run
     filterItc('intro');
