@@ -246,6 +246,12 @@
         </div>
       </div>
 
+        <button onclick="toggleAllDetails()" class="text-xs font-mono px-3 py-1.5 rounded-lg border transition shadow-xs cursor-pointer inline-flex items-center gap-1.5 font-medium">
+          <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="7 15 12 20 17 15"></polyline><polyline points="7 9 12 4 17 9"></polyline></svg>
+          <span class="toggleAllLabel">Expand All Details</span>
+        </button>
+
+
       <!-- Course Introduction Tab -->
       <div id="itc508ContentIntro" class="space-y-6 animate-fade-in block">
 <article class="p-6 sm:p-8 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-8">
@@ -1940,16 +1946,18 @@ function updateFilterTabs() {
     let allExpanded = false;
     function toggleAllDetails() {
       const detailsElements = document.querySelectorAll('.course-details');
-      const label = document.getElementById('toggleAllLabel');
+      const labels = document.querySelectorAll('.toggleAllLabel, #toggleAllLabel');
 
       allExpanded = !allExpanded;
       detailsElements.forEach(d => d.open = allExpanded);
 
-      if (allExpanded) {
-        label.textContent = 'Collapse All Details';
-      } else {
-        label.textContent = 'Expand All Details';
-      }
+      labels.forEach(label => {
+        if (allExpanded) {
+          label.textContent = 'Collapse All Details';
+        } else {
+          label.textContent = 'Expand All Details';
+        }
+      });
     }
 
     const ICON_FILE_TEXT_JS = `<svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>`;
