@@ -104,6 +104,9 @@
 </head>
 <body class="min-h-screen antialiased flex flex-col transition-colors duration-200">
 
+  <!-- Ambient Gaming Console Animated Background (14 Consoles 1983:2025) -->
+  <canvas id="consoleBgCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 block"></canvas>
+
   <!-- Top Sticky Header -->
   <header class="sticky top-0 z-50 backdrop-blur-md transition-colors duration-200 border-b border-[var(--border-header)] bg-[var(--bg-header)]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
@@ -137,12 +140,18 @@
           <span id="themeIcon"></span>
           <span id="themeLabel">Light Mode</span>
         </button>
+
+        <!-- Ambient Console Background Toggle -->
+        <button onclick="toggleConsoleBg()" aria-label="Toggle Console Background" id="consoleBgToggleBtn" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-[var(--border-header)] text-xs font-mono font-medium hover:opacity-80 transition cursor-pointer bg-[var(--bg-card)] text-[var(--text-card-title)] shadow-xs" title="Toggle Console Background">
+          <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="12" x2="10" y2="12"></line><line x1="8" y1="10" x2="8" y2="14"></line><line x1="15" y1="13" x2="15.01" y2="13"></line><line x1="18" y1="11" x2="18.01" y2="11"></line><rect x="2" y="6" width="20" height="12" rx="2"></rect></svg>
+          <span class="hidden sm:inline" id="consoleBgLabel">Consoles</span>
+        </button>
       </div>
 
     </div>
   </header>
 
-  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8">
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 space-y-8 relative z-10">
 
     <!-- Profile Overview Card -->
     <section id="about" class="p-6 sm:p-7 rounded-2xl border border-[var(--border-card)] bg-[var(--bg-card)] shadow-[var(--shadow-card)] space-y-5 transition-all duration-200">
@@ -1424,7 +1433,7 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
     </div>
   </div>
 
-  <footer class="border-t border-[var(--border-header)] py-8 text-xs text-[var(--text-page)] opacity-70 text-center space-y-1 mt-8 font-mono">
+  <footer class="border-t border-[var(--border-header)] py-8 text-xs text-[var(--text-page)] opacity-70 text-center space-y-1 mt-8 font-mono relative z-10">
     <div>Anthony Mijares &bull; Jose Rizal University &bull; BSIT Academic E-Portfolio</div>
     <div class="text-[11px]">ITC-C508: IT Elective 4 &bull; ITC-C506: IT Elective 3 &bull; EMC C102: Human-Computer Interaction</div>
   </footer>
@@ -1520,7 +1529,200 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
       } else if (course === 'itc506') {
         v506.classList.remove('hidden');
         title.textContent = 'ITC-C506: IT Elective 3 (Archive)';
-        filterItc('intro');
+        
+    // --- Ambient Gaming Console Background Canvas Engine (14 Consoles 1983:2025) ---
+    const CONSOLE_LOGOS = [{"id": "nes", "name": "Famicom / NES", "fullName": "Nintendo Entertainment System", "year": 1983, "company": "Nintendo", "brandColor": "#E60012", "viewBox": "0 0 100 100", "svg": "<g fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <rect x=\"10\" y=\"24\" width=\"80\" height=\"52\" rx=\"6\" fill=\"currentColor\" fill-opacity=\"0.08\" stroke=\"currentColor\" stroke-width=\"4\"/>\n            <!-- D-Pad -->\n            <path d=\"M22 44 h8 v-8 h8 v8 h8 v8 h-8 v8 h-8 v-8 h-8 z\" fill=\"currentColor\"/>\n            <!-- Center Buttons -->\n            <rect x=\"42\" y=\"56\" width=\"6\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n            <rect x=\"52\" y=\"56\" width=\"6\" height=\"3\" rx=\"1.5\" fill=\"currentColor\"/>\n            <!-- A and B Buttons -->\n            <circle cx=\"68\" cy=\"52\" r=\"5\" fill=\"#E60012\"/>\n            <circle cx=\"80\" cy=\"52\" r=\"5\" fill=\"#E60012\"/>\n            <!-- Inset Red Stripe -->\n            <line x1=\"20\" y1=\"32\" x2=\"80\" y2=\"32\" stroke=\"#E60012\" stroke-width=\"2\"/>\n        </g>"}, {"id": "genesis", "name": "Sega Genesis / Mega Drive", "fullName": "Sega Genesis / Mega Drive 16-Bit", "year": 1988, "company": "Sega", "brandColor": "#0055A5", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M12 36 h16 v7 h-10 v5 h10 v16 h-16 v-7 h10 v-5 h-10 z\" fill-rule=\"evenodd\"/>\n            <path d=\"M32 36 h15 v7 h-9 v4 h8 v6 h-8 v4 h9 v7 h-15 z\"/>\n            <path d=\"M51 36 h15 v7 h-9 v14 h9 v-5 h-4 v-5 h10 v17 h-21 z\"/>\n            <path d=\"M70 36 h16 v28 h-6 v-7 h-4 v7 h-6 z m6 7 v7 h4 v-7 z\"/>\n            <text x=\"50\" y=\"76\" font-size=\"10\" font-family=\"'Geist', sans-serif\" font-weight=\"900\" text-anchor=\"middle\" letter-spacing=\"2\" fill=\"#0055A5\">16-BIT</text>\n        </g>"}, {"id": "snes", "name": "Super Nintendo (SNES)", "fullName": "Super Nintendo Entertainment System", "year": 1990, "company": "Nintendo", "brandColor": "#7B52AB", "viewBox": "0 0 100 100", "svg": "<g transform=\"translate(50,50) rotate(-25) translate(-50,-50)\">\n            <ellipse cx=\"50\" cy=\"26\" rx=\"16\" ry=\"8\" fill=\"#FFCC00\"/>\n            <ellipse cx=\"74\" cy=\"50\" rx=\"8\" ry=\"16\" fill=\"#0080FF\"/>\n            <ellipse cx=\"50\" cy=\"74\" rx=\"16\" ry=\"8\" fill=\"#00AA44\"/>\n            <ellipse cx=\"26\" cy=\"50\" rx=\"8\" ry=\"16\" fill=\"#FF3333\"/>\n            <circle cx=\"50\" cy=\"50\" r=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" opacity=\"0.3\"/>\n        </g>"}, {"id": "ps1", "name": "PlayStation (PS1)", "fullName": "Sony PlayStation", "year": 1994, "company": "Sony", "brandColor": "#003791", "viewBox": "0 0 100 100", "svg": "<g transform=\"translate(10, 15)\">\n            <path d=\"M22 55 c12 6 36 6 48 0 c-5 4 -16 7 -28 7 c-9 0 -16 -3 -20 -7 z\" fill=\"#F4C300\"/>\n            <path d=\"M12 62 c16 7 48 7 64 0 c-7 5 -22 8 -38 8 c-12 0 -21 -4 -26 -8 z\" fill=\"#00A0B0\"/>\n            <path d=\"M5 69 c20 8 60 8 80 0 c-9 6 -28 9 -48 9 c-16 0 -26 -4 -32 -9 z\" fill=\"#003791\"/>\n            <path d=\"M22 10 h18 c14 0 22 7 22 17 c0 10 -8 17 -22 17 h-7 v18 h-11 z m11 9 v16 h6 c7 0 11 -3 11 -8 c0 -5 -4 -8 -11 -8 z\" fill=\"#DF0024\"/>\n        </g>"}, {"id": "n64", "name": "Nintendo 64 (N64)", "fullName": "Nintendo 64", "year": 1996, "company": "Nintendo", "brandColor": "#E60012", "viewBox": "0 0 100 100", "svg": "<g transform=\"translate(50, 48)\">\n            <path d=\"M0 -34 L28 -18 L28 -4 L0 -20 Z\" fill=\"#00AA44\"/>\n            <path d=\"M0 -34 L-28 -18 L-28 -4 L0 -20 Z\" fill=\"#008833\"/>\n            <path d=\"M-28 -18 L-14 -10 L-14 26 L-28 18 Z\" fill=\"#0055A5\"/>\n            <path d=\"M-28 18 L-14 26 L0 18 L-14 10 Z\" fill=\"#0077CC\"/>\n            <path d=\"M-14 -10 L0 -18 L14 10 L0 18 Z\" fill=\"#E60012\"/>\n            <path d=\"M-14 10 L0 18 L0 34 L-14 26 Z\" fill=\"#B3000E\"/>\n            <path d=\"M14 -10 L28 -18 L28 18 L14 26 Z\" fill=\"#FFCC00\"/>\n            <path d=\"M0 18 L14 26 L28 18 L14 10 Z\" fill=\"#E6B800\"/>\n            <path d=\"M14 26 L28 18 L28 32 L14 40 Z\" fill=\"#CC9900\"/>\n        </g>"}, {"id": "dreamcast", "name": "Sega Dreamcast", "fullName": "Sega Dreamcast", "year": 1998, "company": "Sega", "brandColor": "#FF6600", "viewBox": "0 0 100 100", "svg": "<g fill=\"none\" stroke=\"#FF6600\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <path d=\"M48 50 A 5 5 0 0 1 54 46 A 10 10 0 0 1 62 55 A 16 16 0 0 1 48 68 A 23 23 0 0 1 26 48 A 30 30 0 0 1 53 20 A 37 37 0 0 1 87 52 A 42 42 0 0 1 45 92\" stroke-width=\"7\"/>\n            <circle cx=\"48\" cy=\"50\" r=\"3.5\" fill=\"#FF6600\"/>\n        </g>"}, {"id": "ps2", "name": "PlayStation 2 (PS2)", "fullName": "Sony PlayStation 2", "year": 2000, "company": "Sony", "brandColor": "#002F87", "viewBox": "0 0 100 100", "svg": "<g fill=\"#0080FF\">\n            <path d=\"M14 28 h18 c8 0 14 6 14 14 c0 8 -6 14 -14 14 h-8 v16 h-10 z m10 10 v12 h8 c3 0 5 -2 5 -6 c0 -4 -2 -6 -5 -6 z\"/>\n            <path d=\"M48 58 h18 v6 h-18 v8 h28 v-20 h-18 v-6 h18 v-8 h-28 z\"/>\n            <path d=\"M82 28 h-6 v18 h6 v8 h-12 v8 h18 v-26 h-6 v-8 z\" fill=\"#00C0FF\"/>\n            <rect x=\"76\" y=\"70\" width=\"16\" height=\"8\" fill=\"#00C0FF\"/>\n        </g>"}, {"id": "xbox360", "name": "Xbox 360", "fullName": "Microsoft Xbox 360", "year": 2005, "company": "Microsoft", "brandColor": "#52B043", "viewBox": "0 0 100 100", "svg": "<g>\n            <circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"6\" opacity=\"0.4\"/>\n            <path d=\"M50 14 A 36 36 0 0 1 86 50\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M86 50 A 36 36 0 0 1 50 86\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M50 86 A 36 36 0 0 1 14 50\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M14 50 A 36 36 0 0 1 50 14\" fill=\"none\" stroke=\"#52B043\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n            <path d=\"M30 30 Q 50 48 30 70 Q 50 56 70 70 Q 50 48 70 30 Q 50 44 30 30 Z\" fill=\"#52B043\"/>\n        </g>"}, {"id": "ps3", "name": "PlayStation 3 (PS3)", "fullName": "Sony PlayStation 3", "year": 2006, "company": "Sony", "brandColor": "#E21836", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M16 32 h18 c8 0 14 5 14 12 c0 7 -6 12 -14 12 h-8 v14 h-10 z m10 8 v8 h8 c3 0 5 -1 5 -4 c0 -3 -2 -4 -5 -4 z\"/>\n            <path d=\"M50 56 c2 4 6 6 11 6 c5 0 8 -2 8 -5 c0 -3 -3 -5 -9 -6 c-10 -2 -14 -6 -14 -12 c0 -7 6 -11 14 -11 c7 0 12 3 14 7 l-7 4 c-1 -3 -4 -4 -7 -4 c-3 0 -5 1 -5 3 c0 3 3 4 8 5 c11 2 15 6 15 13 c0 7 -6 12 -16 12 c-8 0 -14 -4 -17 -9 z\"/>\n            <path d=\"M78 32 h16 v6 h-9 v6 h8 v5 h-8 v7 h10 v6 h-17 z\"/>\n            <path d=\"M14 76 Q 50 84 86 76\" fill=\"none\" stroke=\"#E21836\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n        </g>"}, {"id": "wii", "name": "Nintendo Wii", "fullName": "Nintendo Wii", "year": 2006, "company": "Nintendo", "brandColor": "#00B0FF", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M16 42 l6 28 c1 3 3 5 6 5 c3 0 5 -2 6 -5 l6 -20 l6 20 c1 3 3 5 6 5 c3 0 5 -2 6 -5 l6 -28 h-7 l-4 21 l-6 -21 h-4 l-6 21 l-4 -21 z\"/>\n            <rect x=\"58\" y=\"44\" width=\"7\" height=\"28\" rx=\"3.5\"/>\n            <circle cx=\"61.5\" cy=\"32\" r=\"4.5\" fill=\"#00B0FF\"/>\n            <rect x=\"72\" y=\"44\" width=\"7\" height=\"28\" rx=\"3.5\"/>\n            <circle cx=\"75.5\" cy=\"32\" r=\"4.5\" fill=\"#00B0FF\"/>\n        </g>"}, {"id": "ps4", "name": "PlayStation 4 (PS4)", "fullName": "Sony PlayStation 4", "year": 2013, "company": "Sony", "brandColor": "#003791", "viewBox": "0 0 100 100", "svg": "<g fill=\"#003791\">\n            <path d=\"M14 26 h18 c9 0 15 5 15 13 c0 8 -6 13 -15 13 h-7 v18 h-11 z m11 9 v8 h7 c3 0 5 -1 5 -4 c0 -3 -2 -4 -5 -4 z\"/>\n            <path d=\"M48 54 c2 4 6 7 12 7 c5 0 8 -2 8 -5 c0 -3 -3 -5 -9 -6 c-11 -2 -16 -6 -16 -13 c0 -8 7 -13 16 -13 c8 0 14 3 16 8 l-8 5 c-2 -3 -5 -4 -8 -4 c-3 0 -5 1 -5 3 c0 3 3 4 9 5 c12 3 16 7 16 14 c0 8 -7 13 -17 13 c-9 0 -16 -4 -19 -10 z\"/>\n            <path d=\"M86 26 v26 h6 v9 h-6 v9 h-10 v-9 h-12 l-2 -9 l14 -26 z m-10 12 l-7 14 h7 z\"/>\n        </g>"}, {"id": "switch", "name": "Nintendo Switch", "fullName": "Nintendo Switch", "year": 2017, "company": "Nintendo", "brandColor": "#E60012", "viewBox": "0 0 100 100", "svg": "<g fill=\"#E60012\">\n            <path d=\"M18 20 h18 c8 0 12 5 12 12 v36 c0 7 -4 12 -12 12 h-18 c-10 0 -14 -6 -14 -16 v-28 c0 -10 4 -16 14 -16 z m16 16 a 6 6 0 1 0 0.01 0 z\" fill-rule=\"evenodd\"/>\n            <path d=\"M64 20 h18 c10 0 14 6 14 16 v28 c0 10 -4 16 -14 16 h-18 c-8 0 -12 -5 -12 -12 v-36 c0 -7 4 -12 12 -12 z m1 8 v44 c0 3 2 4 5 4 h12 c5 0 7 -3 7 -8 v-28 c0 -5 -2 -8 -7 -8 h-12 c-3 0 -5 1 -5 4 z\" fill-rule=\"evenodd\"/>\n            <circle cx=\"75\" cy=\"56\" r=\"6\" fill=\"#E60012\"/>\n        </g>"}, {"id": "ps5", "name": "PlayStation 5 (PS5)", "fullName": "Sony PlayStation 5", "year": 2020, "company": "Sony", "brandColor": "#00439C", "viewBox": "0 0 100 100", "svg": "<g fill=\"currentColor\">\n            <path d=\"M14 26 h16 c9 0 14 5 14 13 c0 8 -5 13 -14 13 h-6 v18 h-10 z m10 9 v8 h6 c3 0 5 -1 5 -4 c0 -3 -2 -4 -5 -4 z\"/>\n            <path d=\"M46 54 c2 4 6 7 12 7 c5 0 8 -2 8 -5 c0 -3 -3 -5 -9 -6 c-11 -2 -16 -6 -16 -13 c0 -8 7 -13 16 -13 c8 0 14 3 16 8 l-8 5 c-2 -3 -5 -4 -8 -4 c-3 0 -5 1 -5 3 c0 3 3 4 9 5 c12 3 16 7 16 14 c0 8 -7 13 -17 13 c-9 0 -16 -4 -19 -10 z\"/>\n            <path d=\"M74 26 h18 v8 h-11 v8 c2 -1 5 -1 8 -1 c8 0 13 5 13 12 c0 8 -6 14 -16 14 c-8 0 -14 -4 -16 -9 l8 -5 c1 3 4 5 8 5 c4 0 7 -2 7 -5 c0 -3 -3 -5 -7 -5 c-4 0 -7 1 -9 3 z\" fill=\"#0072CE\"/>\n        </g>"}, {"id": "switch2", "name": "Nintendo Switch 2", "fullName": "Nintendo Switch 2", "year": 2025, "company": "Nintendo", "brandColor": "#FF2A3A", "viewBox": "0 0 100 100", "svg": "<g>\n            <path d=\"M12 22 h14 c6 0 10 4 10 10 v36 c0 6 -4 10 -10 10 h-14 c-8 0 -10 -4 -10 -12 v-32 c0 -8 2 -12 10 -12 z m12 12 a 4.5 4.5 0 1 0 0.01 0 z\" fill=\"#FF2A3A\"/>\n            <line x1=\"39\" y1=\"36\" x2=\"39\" y2=\"64\" stroke=\"#FF2A3A\" stroke-width=\"2.5\" stroke-dasharray=\"2 3\"/>\n            <path d=\"M46 22 h14 c8 0 10 4 10 12 v32 c0 8 -2 12 -10 12 h-14 c-6 0 -10 -4 -10 -10 v-36 c0 -6 4 -10 10 -10 z m1 7 v42 c0 2 2 3 4 3 h9 c4 0 5 -2 5 -6 v-26 c0 -4 -1 -6 -5 -6 h-9 c-2 0 -4 1 -4 3 z\" fill=\"#FF2A3A\"/>\n            <circle cx=\"56\" cy=\"56\" r=\"4.5\" fill=\"#FF2A3A\"/>\n            <path d=\"M78 40 h14 v6 h-8 v5 h6 c5 0 8 3 8 7 c0 6 -4 9 -12 9 c-6 0 -10 -3 -12 -7 l6 -3 c1 2 3 3 6 3 c3 0 4 -1 4 -3 c0 -2 -1 -3 -4 -3 h-6 v-14 z\" fill=\"#00D2FF\"/>\n        </g>"}];
+    let consoleBgEnabled = true;
+    try {
+      const savedBg = localStorage.getItem('portfolio_console_ambient');
+      if (savedBg !== null) {
+        consoleBgEnabled = (savedBg === 'true');
+      }
+    } catch(e) {}
+
+    const consoleCache = new Map();
+    function prerenderPortfolioConsoles() {
+      consoleCache.clear();
+      const isLightMode = document.documentElement.classList.contains('theme-light');
+      const tintColor = isLightMode ? '#27272a' : '#ededf0';
+
+      CONSOLE_LOGOS.forEach(c => {
+        const img = new Image();
+        const monoSvg = c.svg.replace(/#[A-Fa-f0-9]{6}/g, tintColor);
+        const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${c.viewBox}" width="128" height="128" fill="${tintColor}" stroke="${tintColor}">${monoSvg}</svg>`;
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgStr);
+        consoleCache.set(c.id, img);
+      });
+    }
+
+    const bgCanvas = document.getElementById('consoleBgCanvas');
+    const bgCtx = bgCanvas ? bgCanvas.getContext('2d') : null;
+    let bgW = 0, bgH = 0;
+    let bgParticles = [];
+    let bgMouseX = null, bgMouseY = null;
+
+    class BgParticle {
+      constructor(idx) {
+        this.reset(idx);
+      }
+      reset(idx) {
+        this.console = CONSOLE_LOGOS[idx % CONSOLE_LOGOS.length];
+        this.x = Math.random() * (bgW || 800);
+        this.y = Math.random() * (bgH || 600);
+        const angle = Math.random() * Math.PI * 2;
+        const vel = 0.2 + Math.random() * 0.4;
+        this.vx = Math.cos(angle) * vel;
+        this.vy = Math.sin(angle) * vel;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.008;
+        this.scale = 0.75 + Math.random() * 0.35;
+        this.pulse = Math.random() * Math.PI;
+      }
+      update() {
+        this.x += this.vx * 0.7;
+        this.y += this.vy * 0.7;
+        this.rotation += this.rotSpeed * 0.7;
+
+        if (this.x < -60) this.x = bgW + 60;
+        if (this.x > bgW + 60) this.x = -60;
+        if (this.y < -60) this.y = bgH + 60;
+        if (this.y > bgH + 60) this.y = -60;
+
+        if (bgMouseX !== null && bgMouseY !== null) {
+          const dx = this.x - bgMouseX;
+          const dy = this.y - bgMouseY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150 && dist > 0) {
+            const force = (150 - dist) / 150 * 1.2;
+            this.x += (dx / dist) * force;
+            this.y += (dy / dist) * force;
+          }
+        }
+        this.pulse += 0.015;
+      }
+      draw() {
+        const img = consoleCache.get(this.console.id);
+        if (!img || !img.complete) return;
+        const isLightMode = document.documentElement.classList.contains('theme-light');
+        const baseAlpha = isLightMode ? 0.09 : 0.13;
+        const alpha = baseAlpha * (0.85 + Math.sin(this.pulse) * 0.15);
+        const size = 42 * this.scale;
+
+        bgCtx.save();
+        bgCtx.globalAlpha = Math.max(0.02, alpha);
+        bgCtx.translate(this.x, this.y);
+        bgCtx.rotate(this.rotation);
+        bgCtx.drawImage(img, -size / 2, -size / 2, size, size);
+        bgCtx.restore();
+      }
+    }
+
+    function initBgCanvas() {
+      if (!bgCanvas) return;
+      bgW = bgCanvas.width = window.innerWidth;
+      bgH = bgCanvas.height = window.innerHeight;
+      bgParticles = [];
+      for (let i = 0; i < 22; i++) {
+        bgParticles.push(new BgParticle(i));
+      }
+    }
+
+    function drawBgLines() {
+      if (!bgCtx) return;
+      const isLightMode = document.documentElement.classList.contains('theme-light');
+      const rgb = isLightMode ? '24, 24, 27' : '255, 255, 255';
+      const baseLineAlpha = isLightMode ? 0.05 : 0.07;
+      const maxDist = 140;
+
+      for (let i = 0; i < bgParticles.length; i++) {
+        for (let j = i + 1; j < bgParticles.length; j++) {
+          const dx = bgParticles[i].x - bgParticles[j].x;
+          const dy = bgParticles[i].y - bgParticles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < maxDist) {
+            const a = (1 - dist / maxDist) * baseLineAlpha;
+            bgCtx.strokeStyle = `rgba(${rgb}, ${a})`;
+            bgCtx.lineWidth = 0.75;
+            bgCtx.beginPath();
+            bgCtx.moveTo(bgParticles[i].x, bgParticles[i].y);
+            bgCtx.lineTo(bgParticles[j].x, bgParticles[j].y);
+            bgCtx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateBg() {
+      if (!bgCtx || !consoleBgEnabled) return;
+      bgCtx.clearRect(0, 0, bgW, bgH);
+      drawBgLines();
+      for (const p of bgParticles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateBg);
+    }
+
+    function updateConsoleTheme() {
+      prerenderPortfolioConsoles();
+      updateConsoleToggleBtnStyle();
+    }
+
+    function toggleConsoleBg() {
+      consoleBgEnabled = !consoleBgEnabled;
+      try {
+        localStorage.setItem('portfolio_console_ambient', consoleBgEnabled ? 'true' : 'false');
+      } catch(e) {}
+      if (bgCanvas) {
+        bgCanvas.style.display = consoleBgEnabled ? 'block' : 'none';
+      }
+      updateConsoleToggleBtnStyle();
+      if (consoleBgEnabled) {
+        animateBg();
+      }
+    }
+
+    function updateConsoleToggleBtnStyle() {
+      const btn = document.getElementById('consoleBgToggleBtn');
+      const isLightMode = document.documentElement.classList.contains('theme-light');
+      if (btn) {
+        if (consoleBgEnabled) {
+          btn.style.opacity = '1';
+          btn.style.borderColor = isLightMode ? '#161619' : '#ededf0';
+        } else {
+          btn.style.opacity = '0.4';
+          btn.style.borderColor = isLightMode ? '#e2e2e7' : '#27272a';
+        }
+      }
+    }
+
+    window.addEventListener('resize', () => {
+      if (!bgCanvas) return;
+      bgW = bgCanvas.width = window.innerWidth;
+      bgH = bgCanvas.height = window.innerHeight;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      bgMouseX = e.clientX;
+      bgMouseY = e.clientY;
+    });
+    window.addEventListener('mouseleave', () => {
+      bgMouseX = null;
+      bgMouseY = null;
+    });
+
+    // Boot background engine
+    prerenderPortfolioConsoles();
+    initBgCanvas();
+    updateConsoleToggleBtnStyle();
+    if (bgCanvas) {
+      bgCanvas.style.display = consoleBgEnabled ? 'block' : 'none';
+    }
+    if (consoleBgEnabled) {
+      animateBg();
+    }
+
+    filterItc('intro');
       } else if (course === 'emc') {
         vEmc.classList.remove('hidden');
         title.textContent = 'EMC C102: Human-Computer Interaction';
@@ -1536,6 +1738,9 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
         localStorage.setItem('portfolio_theme', isLight ? 'light' : 'dark');
       } catch(e) {}
       updateNavStyles();
+      if (typeof updateConsoleTheme === 'function') {
+        updateConsoleTheme();
+      }
     }
 
     let currentFilter = 'intro';
