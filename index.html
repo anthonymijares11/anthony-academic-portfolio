@@ -1487,7 +1487,30 @@ Ultimately, these failures and mistakes reminded me of my namesake Anthony Edwar
 
       
       
-        <div class="space-y-1.5 pt-1">
+                <!-- Document Asset Strip -->
+        <div class="mb-3 p-3.5 sm:p-4 rounded-xl border border-[var(--border-well)] bg-[var(--bg-well)] flex flex-wrap items-center justify-between gap-3 transition-colors duration-150">
+          <div class="flex items-center gap-2.5 min-w-0 max-w-xl">
+            <span class="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 shrink-0 text-[var(--text-card-muted)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </span>
+            <div class="min-w-0">
+              <span class="text-xs sm:text-[13px] font-semibold text-[var(--text-card-title)] block leading-snug truncate sm:whitespace-normal">
+                Project Proposal: Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security
+              </span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button onclick="openAssetModal('assets/docs/final_ex1_project_proposal.pdf', 'Project Proposal: Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security', 'doc')" class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-[var(--bg-card)] border border-[var(--border-well)] text-[var(--text-card-title)] hover:opacity-80 transition font-medium cursor-pointer shadow-xs">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+              <span>Preview Document</span>
+            </button>
+            <a href="assets/docs/final_ex1_project_proposal.pdf" download class="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-black text-white hover:bg-gray-800 transition font-medium">
+              <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Download PDF</span>
+            </a>
+          </div>
+        </div>
+<div class="space-y-1.5 pt-1">
           <h5 class="text-sm sm:text-base font-bold text-[var(--text-card-title)]">Description</h5>
           <p class="text-sm leading-relaxed text-[var(--text-card-body)] font-normal" style="text-indent: 2rem;">This project proposal deck, titled &quot;Data-Driven Framework for Assessing Water Potability and Enhancing Public Health Security,&quot; addresses the critical vulnerability of water quality in the Philippines. While local districts provide supply data, infrastructure aging often compromises safety at the point of consumption. The study focuses on developing an automated predictive system to audit water safety by classifying water sources as safe or unsafe based on physical and chemical properties such as pH, Hardness, Solids, and Chloramines. This showcases the transition from a reactive approach to a proactive, automated audit of public health metrics.</p>
         </div>
